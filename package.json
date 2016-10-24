@@ -1,0 +1,15 @@
+{
+  "name": "apitheme",
+  "version": "1.0.0",
+  "description": "Read the Docs API theme",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Anthony Johnson <aj@ohess.org>",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "bower": "^1.7.9",
+    "less": "^2.7.1"
+  }
+}
