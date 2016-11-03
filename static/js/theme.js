@@ -96,4 +96,34 @@ $(document).ready(function () {
             cb(heading);
         }
     });
+
+    // TODO clean this up
+    function scroll_to_id(id) {
+        id = id.replace(/\./g, '\\.');
+        var elem = $(id);
+        if (elem && elem.offset()) {
+            // TODO make this not a scalar 50px
+            $('html, body').scrollTop(elem.offset().top - 50);
+        }
+    }
+
+    $('a').on('click', function (event) {
+        if (this.hash && this.hash.startsWith('#')) {
+            if (history.pushState) {
+                history.pushState(null, null, this.hash);
+                scroll_to_id(this.hash);
+            }
+            else {
+                location.hash = this.hash;
+            }
+            event.preventDefault();
+        }
+    });
+
+    $(window).on('hashchange', function () {
+        setTimeout(function () { scroll_to_id(window.location.hash) }, 25);
+    });
+    if (window.location.hash) {
+        setTimeout(function () { scroll_to_id(window.location.hash) }, 25);
+    }
 });

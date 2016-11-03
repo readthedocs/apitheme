@@ -672,6 +672,7 @@ div.content h6 a:hover {
 }
 div.content dl.class > dt,
 div.content dl.method > dt,
+div.content dl.function > dt,
 div.content dl.attribute > dt,
 div.content div.heading-fixed > div.inner {
   margin-top: 3rem;
@@ -687,42 +688,49 @@ div.content div.heading-fixed > div.inner {
 }
 div.content dl.class > dt code,
 div.content dl.method > dt code,
+div.content dl.function > dt code,
 div.content dl.attribute > dt code,
 div.content div.heading-fixed > div.inner code {
   font-family: inherit;
 }
 div.content dl.class > dt a,
 div.content dl.method > dt a,
+div.content dl.function > dt a,
 div.content dl.attribute > dt a,
 div.content div.heading-fixed > div.inner a {
   text-decoration: none;
 }
 div.content dl.class > dt a:hover,
 div.content dl.method > dt a:hover,
+div.content dl.function > dt a:hover,
 div.content dl.attribute > dt a:hover,
 div.content div.heading-fixed > div.inner a:hover {
   border-bottom: 1px dotted #ff6a33;
 }
 div.content dl.class > dt em,
 div.content dl.method > dt em,
+div.content dl.function > dt em,
 div.content dl.attribute > dt em,
 div.content div.heading-fixed > div.inner em {
   color: orangered;
 }
 div.content dl.class > dt span.sig-paren,
 div.content dl.method > dt span.sig-paren,
+div.content dl.function > dt span.sig-paren,
 div.content dl.attribute > dt span.sig-paren,
 div.content div.heading-fixed > div.inner span.sig-paren {
   font-weight: bold;
 }
 div.content dl.class > dt code.descname,
 div.content dl.method > dt code.descname,
+div.content dl.function > dt code.descname,
 div.content dl.attribute > dt code.descname,
 div.content div.heading-fixed > div.inner code.descname {
   font-weight: bold;
 }
 div.content dl.class > dt code.descclassname,
 div.content dl.method > dt code.descclassname,
+div.content dl.function > dt code.descclassname,
 div.content dl.attribute > dt code.descclassname,
 div.content div.heading-fixed > div.inner code.descclassname {
   color: #a0a0a0;
