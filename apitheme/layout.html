@@ -78,9 +78,44 @@
 
     {% block extrabody %}{% endblock %}
 
+    {% block header %}
+      <nav class="header">
+        <div class="inner">
+
+          {% block header_search %}
+            <div class="header-search">
+              {% include "searchbox.html" %}
+            </div>
+          {% endblock %}
+
+          {% block header_main %}
+            <div class="header-main">
+              {% block header_breadcrumbs %}
+                {# include "breadcrumbs.html" #}
+              {% endblock %}
+
+              <div class="header-main-content"></div>
+            </div>
+          {% endblock %}
+        </div>
+      </nav>
+    {% endblock %}
+
     {% block nav %}
       <nav class="sidebar sidebar-main">
         <div class="inner">
+          {% block sidebar_version %}
+            {%- set _version = version %}
+            {% if READTHEDOCS and current_version %}
+              {%- set _version = current_version %}
+            {% endif %}
+            {% if _version %}
+              <div class="sidebar-version">
+                {{ _version }}
+              </div>
+            {% endif %}
+          {% endblock %}
+
           {% set toctree = toctree(maxdepth=4, collapse=false, includehidden=True) %}
           <section class="sidebar-toc {% if not toctree %}sidebar-toc-local{% endif %}">
             {{ toc }}
@@ -90,50 +125,46 @@
     {% endblock %}
 
     {% block content %}
-      <div class="content">
-        <div class="inner">
-          {% block content_breadcrumbs %}
-            {% include "breadcrumbs.html" %}
+      <article itemscope=true itemtype="http://schema.org/APIReference">
+        <div class="content">
+          {% block content_heading %}
+            <section class="content-heading">
+
+              {% block content_logo %}
+                <div class="content-logo">
+                  <img src="http://placehold.it/300x300" />
+                </div>
+              {% endblock %}
+
+              <h1 class="content-project" itemprop="executableLibraryName">
+                <a href="{{ pathto(master_doc) }}">{{ project }}</a>
+              </h1>
+              {% block content_version %}
+                {%- set nav_version = version %}
+                {% if READTHEDOCS and current_version %}
+                  {%- set nav_version = current_version %}
+                {% endif %}
+                {% if nav_version %}
+                  <h2 class="content-version">
+                    Version
+                    <span class="version" itemprop="assemblyVersion">
+                      {{ nav_version }}
+                    </span>
+                  </h2>
+                {% endif %}
+              {% endblock %}
+            </section>
           {% endblock %}
 
-          <article itemscope=true itemtype="http://schema.org/APIReference">
-            {% block content_heading %}
-              <section class="content-heading">
-                <h1 class="content-project" itemprop="executableLibraryName">
-                  <a href="{{ pathto(master_doc) }}">{{ project }}</a>
-                </h1>
-                {% block content_version %}
-                  {%- set nav_version = version %}
-                  {% if READTHEDOCS and current_version %}
-                    {%- set nav_version = current_version %}
-                  {% endif %}
-                  {% if nav_version %}
-                    <h2 class="content-version">
-                      Version
-                      <span class="version" itemprop="assemblyVersion">
-                        {{ nav_version }}
-                      </span>
-                    </h2>
-                  {% endif %}
-                {% endblock %}
-              </section>
-            {% endblock %}
-
-            {% block content_search %}
-              <section class="content-search">
-                {% include "searchbox.html" %}
-              </section>
-            {% endblock %}
-
-            <div class="content-body" itemprop="articleBody">
-              {% block body %}{% endblock %}
-            </div>
-          </article>
-
-          {% include "footer.html" %}
+          <div class="content-body" itemprop="articleBody">
+            {% block body %}{% endblock %}
+          </div>
         </div>
-      </div>
+
+      </article>
     {% endblock %}
+
+    {% include "footer.html" %}
 
     {% include "versions.html" %}
 

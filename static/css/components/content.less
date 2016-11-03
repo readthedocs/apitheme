@@ -2,20 +2,12 @@
 
 @import '../variables';
 
-.content () {
-    margin-left: @nav-width;
-    padding: 2rem;
+.ui_content () {
+    margin-left: @sidebar-width;
 
-    section.content-heading {
-        margin: 4rem 0rem;
-
-        h1 {
-            .ui_heading();
-            .ui_heading_title();
-        }
-        h2 {
-            .ui_heading();
-            .ui_heading_subtitle();
-        }
+    .ui_content_body () {
+        padding: @header-height 2rem 2rem 2rem;
+        background: @color-bg;
+        color: @color-fg;
     }
 }

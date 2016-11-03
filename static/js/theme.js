@@ -20,8 +20,8 @@ StickyHeadingHandler.prototype.use_current = function () {
 
 StickyHeadingHandler.prototype.init = function () {
     this.elements = [];
-    this.wrapper = $('<div class="heading-fixed"></div>');
-    $('div.content').append(this.wrapper);
+    this.header = $('nav.header');
+    this.wrapper = $('nav.header div.header-main-content');
 };
 
 /* Use query to select elements to add new Waypoint triggers. On these triggers,
@@ -50,7 +50,7 @@ StickyHeadingHandler.prototype.add_profile = function (query, cb) {
             top_waypoint = new window.Waypoint({
                 element: element,
                 offset: function () {
-                    return heading.wrapper.outerHeight();
+                    return heading.header.outerHeight();
                 },
                 handler: function (direction) {
                     if (direction == 'down') {
@@ -65,7 +65,7 @@ StickyHeadingHandler.prototype.add_profile = function (query, cb) {
             bottom_waypoint = new window.Waypoint({
                 element: element,
                 offset: function () {
-                    return 0 - this.adapter.outerHeight() + heading.wrapper.outerHeight();
+                    return 0 - this.adapter.outerHeight() + heading.header.outerHeight();
                 },
                 handler: function (direction) {
                     if (direction == 'down') {
@@ -77,11 +77,13 @@ StickyHeadingHandler.prototype.add_profile = function (query, cb) {
                     heading.use_current();
                 }
             });
-    })
+    });
 };
 
+
 $(document).ready(function () {
-    var sticky_heading = new StickyHeadingHandler();
+    var sticky_heading = new StickyHeadingHandler(),
+        header = $('nav.header');
 
     sticky_heading.add_profile('dl.class', function (elem, cb) {
         var heading = elem.children('dt').first();
@@ -103,7 +105,7 @@ $(document).ready(function () {
         var elem = $(id);
         if (elem && elem.offset()) {
             // TODO make this not a scalar 50px
-            $('html, body').scrollTop(elem.offset().top - 50);
+            $('html, body').scrollTop(elem.offset().top - header.outerHeight());
         }
     }
 
@@ -121,9 +123,9 @@ $(document).ready(function () {
     });
 
     $(window).on('hashchange', function () {
-        setTimeout(function () { scroll_to_id(window.location.hash) }, 25);
+        setTimeout(function () { scroll_to_id(window.location.hash); }, 25);
     });
     if (window.location.hash) {
-        setTimeout(function () { scroll_to_id(window.location.hash) }, 25);
+        setTimeout(function () { scroll_to_id(window.location.hash); }, 25);
     }
 });

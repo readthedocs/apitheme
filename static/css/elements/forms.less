@@ -1,0 +1,48 @@
+/* Form elements */
+
+@import '../variables';
+
+.element_input_flat (@bg: @color-bg, @fg: @color-fg) {
+    display: inline-block;
+    position: relative;
+    background: mix(@bg, @fg, 90%);
+    color: @fg;
+    box-sizing: border-box;
+
+    input[type='text'] {
+        width: 100%;
+        border: 0rem;
+        padding: .65rem;
+        box-sizing: border-box;
+
+        font-size: 1rem;
+        line-height: 1rem;
+
+        background: inherit;
+        color: inherit;
+
+        outline: 0rem;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+
+        &:focus {
+            background: mix(@bg, @fg, 80%);
+        }
+    }
+}
+
+.element_input_search (@bg: @color-bg, @fg: @color-fg) {
+    .element_input_flat(@bg, @fg);
+
+    input[type='text'] {
+        padding-left: 2.65rem;
+    }
+
+    .element_input_search_icon () {
+        position: absolute;
+        top: 0rem;
+        left: 0rem;
+        height: 100%;
+        width: 2rem;
+    }
+}

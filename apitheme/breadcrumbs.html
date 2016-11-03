@@ -1,37 +1,7 @@
-{# Support for Sphinx 1.3+ page_source_suffix, but don't break old builds. #}
-{% if page_source_suffix %}
-  {% set suffix = page_source_suffix %}
-{% else %}
-  {% set suffix = source_suffix %}
-{% endif %}
-
-{% if meta is defined and meta is not none %}
-  {% set check_meta = True %}
-{% else %}
-  {% set check_meta = False %}
-{% endif %}
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-  {% block navigation_breadcrumbs %}
-    <ul class="navigation-breadcrumb">
-      <li><a href="{{ pathto(master_doc) }}">Docs</a> &raquo;</li>
-        {% for doc in parents %}
-          <li><a href="{{ doc.link|e }}">{{ doc.title }}</a> &raquo;</li>
-        {% endfor %}
-      <li>{{ title }}</li>
-    </ul>
-  {% endblock %}
-  {% block navigation_actions %}
-    <ul class="navigation-actions">
-      <li>
-        {% if pagename != "search" %}
-          {% if show_source and source_url_prefix %}
-            <a href="{{ source_url_prefix }}{{ pagename }}{{ suffix }}">View page source</a>
-          {% elif show_source and has_source and sourcename %}
-            <a href="{{ pathto('_sources/' + sourcename, true)|e }}" rel="nofollow"> View page source</a>
-          {% endif %}
-        {% endif %}
-      </li>
-    </ul>
-  {% endblock %}
-</div>
+<ul class="header-breadcrumbs" role="navigation" aria-label="breadcrumbs navigation">
+  <li><a href="{{ pathto(master_doc) }}">Docs</a></li>
+    {% for doc in parents %}
+      <li><a href="{{ doc.link|e }}">{{ doc.title }}</a></li>
+    {% endfor %}
+  <li>{{ title }}</li>
+</ul>

@@ -447,120 +447,122 @@ a:active,
 a:hover {
   color: #ff7d4d;
 }
-/* Navigation */
+/* Content */
 /* Positioning */
 /* Colors */
-/* Content */
+/* Sidebar */
+/* Header */
+/* Breadcrumbs */
+/* Form elements */
+/* Construct signatures */
 /* Variables */
 /* Style application */
 /* Section styles */
 body {
   font-family: 'Noto Sans', sans-serif;
   font-size: 16px;
+  background: #f0f0f0;
   color: #313131;
 }
-nav {
+nav.header {
+  height: 4rem;
+  overflow: hidden;
+  background: #f0f0f0;
+  color: #313131;
+  z-index: 10000;
+  position: fixed;
+  top: 0rem;
+  left: 0rem;
+  right: 0rem;
+}
+nav.header div.header-search {
+  display: block;
   float: left;
   width: 20rem;
-  margin: 2rem 0rem 2rem 0rem;
-  border-right: 1px solid #d0d0d0;
+  height: 4rem;
+}
+nav.header div.header-search div.inner {
+  padding: .75rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+nav.header div.header-search div.element.input-search {
+  display: inline-block;
+  position: relative;
+  background: #dddddd;
   color: #313131;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
 }
-nav a {
-  text-decoration: none;
+nav.header div.header-search div.element.input-search input[type='text'] {
+  width: 100%;
+  border: 0rem;
+  padding: .65rem;
+  box-sizing: border-box;
+  font-size: 1rem;
+  line-height: 1rem;
+  background: inherit;
+  color: inherit;
+  outline: 0rem;
+  -webkit-appearance: none;
+  -moz-appearance: none;
 }
-nav a:link,
-nav a:visited,
-nav a:active {
-  color: #313131;
+nav.header div.header-search div.element.input-search input[type='text']:focus {
+  background: #cacaca;
 }
-nav a:hover {
+nav.header div.header-search div.element.input-search input[type='text'] {
+  padding-left: 2.65rem;
+}
+nav.header div.header-search div.element.input-search input {
+  width: 100%;
+}
+nav.header div.header-search div.element.input-search div.input-search-icon {
+  position: absolute;
+  top: 0rem;
+  left: 0rem;
+  height: 100%;
+  width: 2rem;
+}
+nav.header div.header-main {
+  display: block;
+  float: left;
+  height: 4rem;
+}
+nav.header div.header-main div.header-main-content {
+  padding: .75rem;
+}
+nav.header div.header-main-content div.inner {
+  margin: 0rem;
+  padding: 0rem 1rem 0rem 1rem;
+  line-height: 2.25rem;
+  background: initial;
+}
+nav.header div.header-main-content div.inner em {
   color: orangered;
 }
-nav div.inner {
-  padding: 1em;
-  font-size: .9rem;
+nav.header div.header-main-content div.inner span.sig-paren {
+  font-weight: bold;
 }
-nav div.inner ul {
-  padding-left: 0rem;
-  margin-top: 0rem;
-  margin-bottom: 0rem;
-  list-style: none;
+nav.header div.header-main-content div.inner code.descname {
+  font-weight: bold;
 }
-nav div.inner ul li {
-  margin: .3rem 0rem;
+nav.header div.header-main-content div.inner code.descclassname {
+  color: #a0a0a0;
+  font-style: italic;
 }
-nav div.inner ul li ul {
-  padding-left: 1rem;
+nav.header div.header-main-content div.inner > em.property {
+  display: inline-block;
+  padding: 0rem .35rem;
+  margin-right: .35rem;
+  font-weight: bold;
+  font-size: .8rem;
+  line-height: 1.5rem;
+  background: red;
+  color: #ffffff;
 }
 div.content {
   margin-left: 20rem;
-  padding: 2rem;
-}
-div.content section.content-heading {
-  margin: 4rem 0rem;
-}
-div.content section.content-heading h1 {
-  font-size: 1rem;
-  line-height: 1.5rem;
-  margin-top: 3rem;
-  margin-bottom: 1rem;
-  font-weight: normal;
-  font-family: "Aleo";
-  font-size: 1.6rem;
-  letter-spacing: .02em;
-  line-height: 2.4rem;
-  margin-top: 2rem;
-  margin-bottom: .3rem;
-}
-div.content section.content-heading h1 code {
-  font-family: inherit;
-}
-div.content section.content-heading h1 a {
-  text-decoration: none;
-}
-div.content section.content-heading h1 a:hover {
-  border-bottom: 1px dotted #ff6a33;
-}
-div.content section.content-heading h1 code {
-  font-family: inherit;
-}
-div.content section.content-heading h1 a {
-  text-decoration: none;
-}
-div.content section.content-heading h1 a:hover {
-  border-bottom: 1px dotted #ff6a33;
-}
-div.content section.content-heading h2 {
-  font-size: 1rem;
-  line-height: 1.5rem;
-  margin-top: 3rem;
-  font-family: "Aleo";
-  font-size: 1.1rem;
-  letter-spacing: .02em;
-  line-height: 1.65rem;
-  margin-top: .3rem;
-  margin-bottom: 1rem;
-  font-family: "Noto Sans", sans-serif;
-  font-weight: normal;
-}
-div.content section.content-heading h2 code {
-  font-family: inherit;
-}
-div.content section.content-heading h2 a {
-  text-decoration: none;
-}
-div.content section.content-heading h2 a:hover {
-  border-bottom: 1px dotted #ff6a33;
-}
-div.content section.content-heading h2 code {
-  font-family: inherit;
-}
-div.content section.content-heading h2 a {
-  text-decoration: none;
-}
-div.content section.content-heading h2 a:hover {
-  border-bottom: 1px dotted #ff6a33;
 }
 div.content h1 {
   margin-top: 3rem;
@@ -673,8 +675,7 @@ div.content h6 a:hover {
 div.content dl.class > dt,
 div.content dl.method > dt,
 div.content dl.function > dt,
-div.content dl.attribute > dt,
-div.content div.heading-fixed > div.inner {
+div.content dl.attribute > dt {
   margin-top: 3rem;
   margin-bottom: 1rem;
   font-weight: normal;
@@ -689,62 +690,50 @@ div.content div.heading-fixed > div.inner {
 div.content dl.class > dt code,
 div.content dl.method > dt code,
 div.content dl.function > dt code,
-div.content dl.attribute > dt code,
-div.content div.heading-fixed > div.inner code {
+div.content dl.attribute > dt code {
   font-family: inherit;
 }
 div.content dl.class > dt a,
 div.content dl.method > dt a,
 div.content dl.function > dt a,
-div.content dl.attribute > dt a,
-div.content div.heading-fixed > div.inner a {
+div.content dl.attribute > dt a {
   text-decoration: none;
 }
 div.content dl.class > dt a:hover,
 div.content dl.method > dt a:hover,
 div.content dl.function > dt a:hover,
-div.content dl.attribute > dt a:hover,
-div.content div.heading-fixed > div.inner a:hover {
+div.content dl.attribute > dt a:hover {
   border-bottom: 1px dotted #ff6a33;
 }
 div.content dl.class > dt em,
 div.content dl.method > dt em,
 div.content dl.function > dt em,
-div.content dl.attribute > dt em,
-div.content div.heading-fixed > div.inner em {
+div.content dl.attribute > dt em {
   color: orangered;
 }
 div.content dl.class > dt span.sig-paren,
 div.content dl.method > dt span.sig-paren,
 div.content dl.function > dt span.sig-paren,
-div.content dl.attribute > dt span.sig-paren,
-div.content div.heading-fixed > div.inner span.sig-paren {
+div.content dl.attribute > dt span.sig-paren {
   font-weight: bold;
 }
 div.content dl.class > dt code.descname,
 div.content dl.method > dt code.descname,
 div.content dl.function > dt code.descname,
-div.content dl.attribute > dt code.descname,
-div.content div.heading-fixed > div.inner code.descname {
+div.content dl.attribute > dt code.descname {
   font-weight: bold;
 }
 div.content dl.class > dt code.descclassname,
 div.content dl.method > dt code.descclassname,
 div.content dl.function > dt code.descclassname,
-div.content dl.attribute > dt code.descclassname,
-div.content div.heading-fixed > div.inner code.descclassname {
+div.content dl.attribute > dt code.descclassname {
   color: #a0a0a0;
   font-style: italic;
 }
-div.content div.heading-fixed > div.inner {
-  margin: 0rem;
-  padding-top: 0rem;
-  padding-bottom: 0rem;
-  line-height: 3rem;
-  background: initial;
-}
 div.content dl.class > dt > em.property,
-div.content div.heading-fixed > div.inner em.property {
+div.content dl.method > dt > em.property,
+div.content dl.function > dt > em.property,
+div.content dl.attribute > dt > em.property {
   display: inline-block;
   padding: 0rem .35rem;
   margin-right: .35rem;
@@ -753,16 +742,6 @@ div.content div.heading-fixed > div.inner em.property {
   line-height: 1.5rem;
   background: red;
   color: #ffffff;
-}
-div.content div.heading-fixed {
-  position: fixed;
-  top: 0rem;
-  left: 20rem;
-  right: 0rem;
-  height: 3rem;
-  background: #fff;
-  border-bottom: 1px solid #e0e0e0;
-  z-index: 10000;
 }
 div.content p {
   line-height: 1.35rem;
@@ -776,6 +755,199 @@ div.content p code {
 div.content p code span.pre {
   word-wrap: pre;
 }
+div.content section.content-heading {
+  padding: 6rem 2rem;
+  overflow: auto;
+  max-width: 60rem;
+}
+div.content section.content-heading h1 {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  font-weight: normal;
+  font-family: "Aleo";
+  font-size: 1.6rem;
+  letter-spacing: .02em;
+  line-height: 2.4rem;
+  margin-top: 2rem;
+  margin-bottom: .3rem;
+  margin-top: 0rem;
+}
+div.content section.content-heading h1 code {
+  font-family: inherit;
+}
+div.content section.content-heading h1 a {
+  text-decoration: none;
+}
+div.content section.content-heading h1 a:hover {
+  border-bottom: 1px dotted #ff6a33;
+}
+div.content section.content-heading h1 code {
+  font-family: inherit;
+}
+div.content section.content-heading h1 a {
+  text-decoration: none;
+}
+div.content section.content-heading h1 a:hover {
+  border-bottom: 1px dotted #ff6a33;
+}
+div.content section.content-heading h2 {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  margin-top: 3rem;
+  font-family: "Aleo";
+  font-size: 1.1rem;
+  letter-spacing: .02em;
+  line-height: 1.65rem;
+  margin-top: .3rem;
+  margin-bottom: 1rem;
+  font-family: "Noto Sans", sans-serif;
+  font-weight: normal;
+  margin-bottom: 0rem;
+}
+div.content section.content-heading h2 code {
+  font-family: inherit;
+}
+div.content section.content-heading h2 a {
+  text-decoration: none;
+}
+div.content section.content-heading h2 a:hover {
+  border-bottom: 1px dotted #ff6a33;
+}
+div.content section.content-heading h2 code {
+  font-family: inherit;
+}
+div.content section.content-heading h2 a {
+  text-decoration: none;
+}
+div.content section.content-heading h2 a:hover {
+  border-bottom: 1px dotted #ff6a33;
+}
+div.content section.content-heading div.content-logo {
+  float: right;
+  padding-left: 1rem;
+  overflow: hidden;
+}
+div.content section.content-heading div.content-logo img {
+  width: 9rem;
+  height: 9rem;
+}
+div.content section.content-heading div.content-search div.element.input-search {
+  display: inline-block;
+  position: relative;
+  background: #dddddd;
+  color: #313131;
+  box-sizing: border-box;
+  margin-top: 1rem;
+}
+div.content section.content-heading div.content-search div.element.input-search input[type='text'] {
+  width: 100%;
+  border: 0rem;
+  padding: .65rem;
+  box-sizing: border-box;
+  font-size: 1rem;
+  line-height: 1rem;
+  background: inherit;
+  color: inherit;
+  outline: 0rem;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+div.content section.content-heading div.content-search div.element.input-search input[type='text']:focus {
+  background: #cacaca;
+}
+div.content section.content-heading div.content-search div.element.input-search input[type='text'] {
+  padding-left: 2.65rem;
+}
+div.content section.content-heading div.content-search div.element.input-search div.input-search-icon {
+  position: absolute;
+  top: 0rem;
+  left: 0rem;
+  height: 100%;
+  width: 2rem;
+}
+div.content div.content-body {
+  padding: 4rem 2rem 2rem 2rem;
+  background: #fcfcfc;
+  color: #313131;
+}
+/* Sidebar */
+nav.sidebar {
+  position: fixed;
+  width: 20rem;
+  margin: 4rem 0rem 2rem 0rem;
+}
+nav.sidebar a {
+  text-decoration: none;
+}
+nav.sidebar a:link,
+nav.sidebar a:visited,
+nav.sidebar a:active {
+  color: #313131;
+}
+nav.sidebar a:hover {
+  color: orangered;
+}
+nav.sidebar div.inner {
+  padding: 1rem 2rem;
+}
+nav.sidebar section.sidebar-toc > ul {
+  padding-left: 0rem;
+  margin-top: 0rem;
+  margin-bottom: 0rem;
+  list-style: none;
+}
+nav.sidebar section.sidebar-toc > ul > li {
+  font-family: 'Noto Sans', sans-serif;
+  margin-top: .5rem;
+  margin-bottom: .5rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+nav.sidebar section.sidebar-toc > ul > li > a {
+  font-weight: bold;
+}
+nav.sidebar section.sidebar-toc > ul > li > ul {
+  margin-top: 0rem;
+  margin-bottom: 0rem;
+  list-style: none;
+  padding-left: 0rem;
+}
+nav.sidebar section.sidebar-toc > ul > li > ul > li {
+  font-family: 'Noto Sans', sans-serif;
+  margin-top: .5rem;
+  margin-bottom: .5rem;
+}
+nav.sidebar section.sidebar-toc > ul > li > ul > li > ul {
+  padding-left: 0rem;
+  margin-top: 0rem;
+  margin-bottom: 0rem;
+  list-style: none;
+  visibility: hidden;
+  display: none;
+}
+nav.sidebar section.sidebar-toc > ul > li > ul > li > ul > li {
+  font-family: 'Noto Sans', sans-serif;
+  margin-top: .5rem;
+  margin-bottom: .5rem;
+}
+nav.sidebar section.sidebar-toc > ul > li > ul > li > ul > li > ul {
+  padding-left: 0rem;
+  margin-top: 0rem;
+  margin-bottom: 0rem;
+  list-style: none;
+  visibility: hidden;
+  display: none;
+}
+nav.sidebar section.sidebar-toc > ul > li > ul > li > ul > li > ul > li {
+  font-family: 'Noto Sans', sans-serif;
+  margin-top: .5rem;
+  margin-bottom: .5rem;
+}
+nav.sidebar section.sidebar-toc a > code {
+  font-family: 'Noto Sans', sans-serif;
+}
 /* Content styles */
 h1 > a.headerlink,
 h2 > a.headerlink,
@@ -784,7 +956,7 @@ h4 > a.headerlink,
 h5 > a.headerlink,
 h6 > a.headerlink,
 div.section dl > dt > a.headerlink,
-div.heading-fixed a.headerlink {
+nav.header div.header-main-content a.headerlink {
   visibility: hidden;
   text-decoration: none;
 }
@@ -795,7 +967,7 @@ h4 > a.headerlink:before,
 h5 > a.headerlink:before,
 h6 > a.headerlink:before,
 div.section dl > dt > a.headerlink:before,
-div.heading-fixed a.headerlink:before {
+nav.header div.header-main-content a.headerlink:before {
   visibility: visible;
   margin-left: .5rem;
   content: 'pmlnk';

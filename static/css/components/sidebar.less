@@ -1,0 +1,75 @@
+/* Sidebar */
+
+@import '../variables';
+
+.ui_sidebar () {
+    position: fixed;
+    width: @sidebar-width;
+    margin: @header-height 0rem 2rem 0rem;
+
+    .ui_sidebar_inner () {
+        padding: 1rem 2rem;
+    }
+
+    .ui_sidebar_list () {
+        padding-left: 0rem;
+        margin-top: 0rem;
+        margin-bottom: 0rem;
+        list-style: none;
+    }
+    .ui_sidebar_l1_list () {
+        .ui_sidebar_list();
+    }
+    .ui_sidebar_l2_list () {
+        .ui_sidebar_list();
+        padding-left: 0rem;
+    }
+    .ui_sidebar_l3_list () {
+        .ui_sidebar_list();
+        visibility: hidden;
+        display: none;
+    }
+    .ui_sidebar_l4_list () {
+        .ui_sidebar_list();
+        visibility: hidden;
+        display: none;
+    }
+
+    .ui_sidebar_item () {
+        font-family: 'Noto Sans', sans-serif;
+        margin-top: .5rem;
+        margin-bottom: .5rem;
+    }
+    .ui_sidebar_l1_item () {
+        .ui_sidebar_item();
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+
+        > a {
+            font-weight: bold;
+        }
+    }
+    .ui_sidebar_l2_item () {
+        .ui_sidebar_item();
+    }
+    .ui_sidebar_l3_item () {
+        .ui_sidebar_item();
+    }
+    .ui_sidebar_l4_item () {
+        .ui_sidebar_item();
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    a:link,
+    a:visited,
+    a:active {
+        color: @color-nav-fg;
+    }
+
+    a:hover {
+        color: @color-primary;
+    }
+}

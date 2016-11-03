@@ -1,0 +1,32 @@
+/* Header */
+
+@import '../variables';
+
+.ui_header () {
+    height: @header-height;
+    overflow: hidden;
+    background: @color-nav-bg;
+    color: @color-nav-fg;
+    z-index: 10000;
+
+    .ui_header_left () {
+        display: block;
+        float: left;
+        width: @sidebar-width;
+        height: @header-height;
+    }
+
+    .ui_header_main () {
+        display: block;
+        float: left;
+        height: @header-height;
+    }
+}
+
+.ui_header_fixed () {
+    .ui_header();
+    position: fixed;
+    top: 0rem;
+    left: 0rem;
+    right: 0rem;
+}
