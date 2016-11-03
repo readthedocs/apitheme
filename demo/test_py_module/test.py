@@ -41,6 +41,14 @@ class Foo:
     baz = 2
     """Docstring for class attribute Foo.baz."""
 
+    class Meta:
+
+        """Nested Meta class"""
+
+        def foo(self):
+            """Foo method for the meta class"""
+            return False
+
     def __init__(self, qux, spam=False):
         """Start the Foo.
 

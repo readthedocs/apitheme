@@ -9,6 +9,7 @@
   "author": "Anthony Johnson <aj@ohess.org>",
   "license": "GPL-3.0",
   "dependencies": {
+    "aliasify": "^2.0.0",
     "bower": "^1.7.9",
     "browserify": "^13.1.1",
     "debowerify": "^1.5.0",

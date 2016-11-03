@@ -1,0 +1,21 @@
+/* Content */
+
+@import '../variables';
+
+.content () {
+    margin-left: @nav-width;
+    padding: 2rem;
+
+    section.content-heading {
+        margin: 4rem 0rem;
+
+        h1 {
+            .ui_heading();
+            .ui_heading_title();
+        }
+        h2 {
+            .ui_heading();
+            .ui_heading_subtitle();
+        }
+    }
+}

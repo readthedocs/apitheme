@@ -1,0 +1,102 @@
+/* Read the Docs API theme - Typography
+
+This theme uses Noto:
+https://www.google.com/get/noto/
+
+Eventually, if necessary, this list of fonts can be extended to support more
+unicode ranges.
+*/
+
+@notosans-fontface-path: '../font';
+
+.notosans-fontface(@type, @weight, @style) {
+    @font-face {
+        font-family: 'Noto Sans';
+        src: url('@{notosans-fontface-path}/NotoSans-@{type}.eot');
+        src: local('Noto Sans @{type}'),
+             local('NotoSans-@{type}'),
+             url('@{notosans-fontface-path}/NotoSans-@{type}.woff2')
+                 format('woff2'),
+             url('@{notosans-fontface-path}/NotoSans-@{type}.woff')
+                 format('woff'),
+             url('@{notosans-fontface-path}/NotoSans-@{type}.ttf')
+                 format('truetype');
+        font-weight: @weight;
+        font-style: @style;
+    }
+}
+
+.notosans-fontface('Regular', 400, normal);
+.notosans-fontface('Bold', 700, normal);
+.notosans-fontface('Italic', 400, italic);
+.notosans-fontface('BoldItalic', 700, italic);
+
+.ui_heading (@size: 1rem) {
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    font-weight: normal;
+    font-family: "Aleo";
+    font-size: @size;
+    letter-spacing: .02em;
+    line-height: @size * 1.5;
+
+    code {
+        font-family: inherit;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    a:hover {
+        border-bottom: 1px dotted lighten(@color-primary, 10%);
+    }
+
+    .ui_heading_permalink () {
+        // TODO
+    }
+}
+
+.ui_heading_block (@size: 1rem) {
+    .ui_heading(@size);
+    padding: .75rem;
+    background: #f4f4f4;
+    font-family: "Noto Sans", sans-serif;
+}
+
+.ui_heading_title () {
+    .ui_heading(1.6rem);
+    margin-top: 2rem;
+    margin-bottom: .3rem;
+}
+
+.ui_heading_subtitle () {
+    .ui_heading(1.1rem);
+    margin-top: .3rem;
+    margin-bottom: 1rem;
+    font-family: "Noto Sans", sans-serif;
+    font-weight: normal;
+}
+
+.ui_text () {
+    line-height: 1.35rem;
+
+    .ui_text_fixed () {
+        font-family: monospace;
+        padding: .2rem;
+        background: fadeout(@color-primary, 90%);
+    }
+}
+
+.ui_text_readable () {
+    .ui_text();
+    max-width: 50em;
+}
+
+a:link, a:visited {
+    color: @color-primary;
+}
+
+a:active, a:hover {
+    color: lighten(@color-primary, 15%);
+}

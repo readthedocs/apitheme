@@ -1,0 +1,45 @@
+/* Navigation */
+
+@import '../variables';
+
+.ui_nav () {
+    float: left;
+    width: @nav-width;
+    margin: 2rem 0rem 2rem 0rem;
+    border-right: 1px solid #d0d0d0;
+    color: @color-nav-fg;
+
+    .ui_nav_inner () {
+        padding: 1em;
+        font-size: .9rem;
+
+        ul {
+            padding-left: 0rem;
+            margin-top: 0rem;
+            margin-bottom: 0rem;
+            list-style: none;
+
+            li {
+                margin: .3rem 0rem;
+
+                ul {
+                    padding-left: 1rem;
+                }
+            }
+        }
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    a:link,
+    a:visited,
+    a:active {
+        color: @color-nav-fg;
+    }
+
+    a:hover {
+        color: @color-primary;
+    }
+}

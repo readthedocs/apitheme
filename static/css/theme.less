@@ -1,7 +1,136 @@
 /* Read the Docs API theme */
 
 @import (less) 'normalize-css/normalize.css';
+@import 'typography';
 
-* {
-    none: none;
+@import 'components/navigation';
+@import 'components/content';
+
+/* Variables */
+@nav-width: 20rem;
+@background: green;
+
+/* Style application */
+
+/* Section styles */
+body {
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 16px;
+    color: @color-fg;
+}
+
+nav {
+    .ui_nav();
+
+    div.inner {
+        .ui_nav_inner();
+    }
+}
+
+div.content {
+    .content();
+
+    h1 { .ui_heading(1.3rem); }
+    h2 { .ui_heading(1.2rem); }
+    h3 { .ui_heading(1.1rem); }
+    h4 { .ui_heading(1rem); }
+    h5 { .ui_heading(1rem); }
+    h6 { .ui_heading(1rem); }
+
+    dl.class > dt,
+    dl.method > dt,
+    dl.function > dt,
+    dl.attribute > dt,
+    div.heading-fixed > div.inner {
+        .ui_heading_block(1rem);
+
+        em {
+            color: orangered;
+        }
+
+        span.sig-paren {
+            font-weight: bold;
+        }
+
+        code.descname {
+            font-weight: bold;
+        }
+
+        code.descclassname {
+            color: #a0a0a0;
+            font-style: italic;
+        }
+    }
+
+    div.heading-fixed > div.inner {
+        margin: 0rem;
+        padding-top: 0rem;
+        padding-bottom: 0rem;
+        line-height: 3rem;
+        background: initial;
+    }
+
+    dl.class > dt > em.property,
+    div.heading-fixed > div.inner em.property {
+        display: inline-block;
+        padding: 0rem .35rem;
+        margin-right: .35rem;
+        font-weight: bold;
+        font-size: .8rem;
+        line-height: 1.5rem;
+        background: red;
+        color: #ffffff;
+    }
+
+    div.heading-fixed {
+        position: fixed;
+        top: 0rem;
+        left: @nav-width;
+        right: 0rem;
+        height: 3rem;
+        background: #fff;
+        border-bottom: 1px solid #e0e0e0;
+        z-index: 10000;
+    }
+
+    p {
+        .ui_text_readable();
+
+        code {
+            span.pre {
+                word-wrap: pre;
+            }
+
+            .ui_text_fixed();
+        }
+    }
+}
+
+/* Content styles */
+h1 > a.headerlink,
+h2 > a.headerlink,
+h3 > a.headerlink,
+h4 > a.headerlink,
+h5 > a.headerlink,
+h6 > a.headerlink,
+div.section dl > dt > a.headerlink,
+div.heading-fixed a.headerlink {
+    visibility: hidden;
+    text-decoration: none;
+}
+
+h1 > a.headerlink:before,
+h2 > a.headerlink:before,
+h3 > a.headerlink:before,
+h4 > a.headerlink:before,
+h5 > a.headerlink:before,
+h6 > a.headerlink:before,
+div.section dl > dt > a.headerlink:before,
+div.heading-fixed a.headerlink:before {
+    visibility: visible;
+    margin-left: .5rem;
+    content: 'pmlnk';
+    font-size: 1rem;
+    color: lighten(@color-fg, 20%);
+    text-decoration: none;
 }

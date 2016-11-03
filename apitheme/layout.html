@@ -81,53 +81,58 @@
     {% block nav %}
       <nav class="sidebar sidebar-main">
         <div class="inner">
-
-          {% block sidebar_heading %}
-            <section class="sidebar-heading">
-              <h1>
-                <a href="{{ pathto(master_doc) }}">{{ project }}</a>
-              </h1>
-              <h2>
-                {%- set nav_version = version %}
-                {% if READTHEDOCS and current_version %}
-                  {%- set nav_version = current_version %}
-                {% endif %}
-                {% if nav_version %}
-                  <span class="version">
-                    {{ nav_version }}
-                  </span>
-                {% endif %}
-              </h2>
-            </section>
-          {% endblock %}
-
-          {% block sidebar_search %}
-            <section class="sidebar-search">
-              {% include "searchbox.html" %}
-            </section>
-          {% endblock %}
-
-          {% block sidebar_toc %}
-            {% set toctree = toctree(maxdepth=4, collapse=false, includehidden=True) %}
-            <section class="sidebar-toc {% if not toctree %}sidebar-toc-local{% endif %}">
-              {{ toc }}
-            </section>
-          {% endblock %}
-
+          {% set toctree = toctree(maxdepth=4, collapse=false, includehidden=True) %}
+          <section class="sidebar-toc {% if not toctree %}sidebar-toc-local{% endif %}">
+            {{ toc }}
+          </section>
         </div>
       </nav>
     {% endblock %}
 
     {% block content %}
-      {% include "breadcrumbs.html" %}
+      <div class="content">
+        <div class="inner">
+          {% block content_breadcrumbs %}
+            {% include "breadcrumbs.html" %}
+          {% endblock %}
 
-      <article itemscope=true itemtype="http://schema.org/APIReference">
-        <div itemprop="articleBody">
-          {% block body %}{% endblock %}
+          <article itemscope=true itemtype="http://schema.org/APIReference">
+            {% block content_heading %}
+              <section class="content-heading">
+                <h1 class="content-project" itemprop="executableLibraryName">
+                  <a href="{{ pathto(master_doc) }}">{{ project }}</a>
+                </h1>
+                {% block content_version %}
+                  {%- set nav_version = version %}
+                  {% if READTHEDOCS and current_version %}
+                    {%- set nav_version = current_version %}
+                  {% endif %}
+                  {% if nav_version %}
+                    <h2 class="content-version">
+                      Version
+                      <span class="version" itemprop="assemblyVersion">
+                        {{ nav_version }}
+                      </span>
+                    </h2>
+                  {% endif %}
+                {% endblock %}
+              </section>
+            {% endblock %}
+
+            {% block content_search %}
+              <section class="content-search">
+                {% include "searchbox.html" %}
+              </section>
+            {% endblock %}
+
+            <div class="content-body" itemprop="articleBody">
+              {% block body %}{% endblock %}
+            </div>
+          </article>
+
+          {% include "footer.html" %}
         </div>
-      </article>
-
-      {% include "footer.html" %}
+      </div>
     {% endblock %}
 
     {% include "versions.html" %}

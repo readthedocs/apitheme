@@ -403,6 +403,395 @@ template {
 [hidden] {
   display: none;
 }
-* {
-  none: none;
+/* Read the Docs API theme - Typography
+
+This theme uses Noto:
+https://www.google.com/get/noto/
+
+Eventually, if necessary, this list of fonts can be extended to support more
+unicode ranges.
+*/
+@font-face {
+  font-family: 'Noto Sans';
+  src: url('../font/NotoSans-Regular.eot');
+  src: local('Noto Sans Regular'), local('NotoSans-Regular'), url('../font/NotoSans-Regular.woff2') format('woff2'), url('../font/NotoSans-Regular.woff') format('woff'), url('../font/NotoSans-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Noto Sans';
+  src: url('../font/NotoSans-Bold.eot');
+  src: local('Noto Sans Bold'), local('NotoSans-Bold'), url('../font/NotoSans-Bold.woff2') format('woff2'), url('../font/NotoSans-Bold.woff') format('woff'), url('../font/NotoSans-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Noto Sans';
+  src: url('../font/NotoSans-Italic.eot');
+  src: local('Noto Sans Italic'), local('NotoSans-Italic'), url('../font/NotoSans-Italic.woff2') format('woff2'), url('../font/NotoSans-Italic.woff') format('woff'), url('../font/NotoSans-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Noto Sans';
+  src: url('../font/NotoSans-BoldItalic.eot');
+  src: local('Noto Sans BoldItalic'), local('NotoSans-BoldItalic'), url('../font/NotoSans-BoldItalic.woff2') format('woff2'), url('../font/NotoSans-BoldItalic.woff') format('woff'), url('../font/NotoSans-BoldItalic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+}
+a:link,
+a:visited {
+  color: orangered;
+}
+a:active,
+a:hover {
+  color: #ff7d4d;
+}
+/* Navigation */
+/* Positioning */
+/* Colors */
+/* Content */
+/* Variables */
+/* Style application */
+/* Section styles */
+body {
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 16px;
+  color: #313131;
+}
+nav {
+  float: left;
+  width: 20rem;
+  margin: 2rem 0rem 2rem 0rem;
+  border-right: 1px solid #d0d0d0;
+  color: #313131;
+}
+nav a {
+  text-decoration: none;
+}
+nav a:link,
+nav a:visited,
+nav a:active {
+  color: #313131;
+}
+nav a:hover {
+  color: orangered;
+}
+nav div.inner {
+  padding: 1em;
+  font-size: .9rem;
+}
+nav div.inner ul {
+  padding-left: 0rem;
+  margin-top: 0rem;
+  margin-bottom: 0rem;
+  list-style: none;
+}
+nav div.inner ul li {
+  margin: .3rem 0rem;
+}
+nav div.inner ul li ul {
+  padding-left: 1rem;
+}
+div.content {
+  margin-left: 20rem;
+  padding: 2rem;
+}
+div.content section.content-heading {
+  margin: 4rem 0rem;
+}
+div.content section.content-heading h1 {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  font-weight: normal;
+  font-family: "Aleo";
+  font-size: 1.6rem;
+  letter-spacing: .02em;
+  line-height: 2.4rem;
+  margin-top: 2rem;
+  margin-bottom: .3rem;
+}
+div.content section.content-heading h1 code {
+  font-family: inherit;
+}
+div.content section.content-heading h1 a {
+  text-decoration: none;
+}
+div.content section.content-heading h1 a:hover {
+  border-bottom: 1px dotted #ff6a33;
+}
+div.content section.content-heading h1 code {
+  font-family: inherit;
+}
+div.content section.content-heading h1 a {
+  text-decoration: none;
+}
+div.content section.content-heading h1 a:hover {
+  border-bottom: 1px dotted #ff6a33;
+}
+div.content section.content-heading h2 {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  margin-top: 3rem;
+  font-family: "Aleo";
+  font-size: 1.1rem;
+  letter-spacing: .02em;
+  line-height: 1.65rem;
+  margin-top: .3rem;
+  margin-bottom: 1rem;
+  font-family: "Noto Sans", sans-serif;
+  font-weight: normal;
+}
+div.content section.content-heading h2 code {
+  font-family: inherit;
+}
+div.content section.content-heading h2 a {
+  text-decoration: none;
+}
+div.content section.content-heading h2 a:hover {
+  border-bottom: 1px dotted #ff6a33;
+}
+div.content section.content-heading h2 code {
+  font-family: inherit;
+}
+div.content section.content-heading h2 a {
+  text-decoration: none;
+}
+div.content section.content-heading h2 a:hover {
+  border-bottom: 1px dotted #ff6a33;
+}
+div.content h1 {
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  font-weight: normal;
+  font-family: "Aleo";
+  font-size: 1.3rem;
+  letter-spacing: .02em;
+  line-height: 1.95rem;
+}
+div.content h1 code {
+  font-family: inherit;
+}
+div.content h1 a {
+  text-decoration: none;
+}
+div.content h1 a:hover {
+  border-bottom: 1px dotted #ff6a33;
+}
+div.content h2 {
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  font-weight: normal;
+  font-family: "Aleo";
+  font-size: 1.2rem;
+  letter-spacing: .02em;
+  line-height: 1.8rem;
+}
+div.content h2 code {
+  font-family: inherit;
+}
+div.content h2 a {
+  text-decoration: none;
+}
+div.content h2 a:hover {
+  border-bottom: 1px dotted #ff6a33;
+}
+div.content h3 {
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  font-weight: normal;
+  font-family: "Aleo";
+  font-size: 1.1rem;
+  letter-spacing: .02em;
+  line-height: 1.65rem;
+}
+div.content h3 code {
+  font-family: inherit;
+}
+div.content h3 a {
+  text-decoration: none;
+}
+div.content h3 a:hover {
+  border-bottom: 1px dotted #ff6a33;
+}
+div.content h4 {
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  font-weight: normal;
+  font-family: "Aleo";
+  font-size: 1rem;
+  letter-spacing: .02em;
+  line-height: 1.5rem;
+}
+div.content h4 code {
+  font-family: inherit;
+}
+div.content h4 a {
+  text-decoration: none;
+}
+div.content h4 a:hover {
+  border-bottom: 1px dotted #ff6a33;
+}
+div.content h5 {
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  font-weight: normal;
+  font-family: "Aleo";
+  font-size: 1rem;
+  letter-spacing: .02em;
+  line-height: 1.5rem;
+}
+div.content h5 code {
+  font-family: inherit;
+}
+div.content h5 a {
+  text-decoration: none;
+}
+div.content h5 a:hover {
+  border-bottom: 1px dotted #ff6a33;
+}
+div.content h6 {
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  font-weight: normal;
+  font-family: "Aleo";
+  font-size: 1rem;
+  letter-spacing: .02em;
+  line-height: 1.5rem;
+}
+div.content h6 code {
+  font-family: inherit;
+}
+div.content h6 a {
+  text-decoration: none;
+}
+div.content h6 a:hover {
+  border-bottom: 1px dotted #ff6a33;
+}
+div.content dl.class > dt,
+div.content dl.method > dt,
+div.content dl.attribute > dt,
+div.content div.heading-fixed > div.inner {
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  font-weight: normal;
+  font-family: "Aleo";
+  font-size: 1rem;
+  letter-spacing: .02em;
+  line-height: 1.5rem;
+  padding: .75rem;
+  background: #f4f4f4;
+  font-family: "Noto Sans", sans-serif;
+}
+div.content dl.class > dt code,
+div.content dl.method > dt code,
+div.content dl.attribute > dt code,
+div.content div.heading-fixed > div.inner code {
+  font-family: inherit;
+}
+div.content dl.class > dt a,
+div.content dl.method > dt a,
+div.content dl.attribute > dt a,
+div.content div.heading-fixed > div.inner a {
+  text-decoration: none;
+}
+div.content dl.class > dt a:hover,
+div.content dl.method > dt a:hover,
+div.content dl.attribute > dt a:hover,
+div.content div.heading-fixed > div.inner a:hover {
+  border-bottom: 1px dotted #ff6a33;
+}
+div.content dl.class > dt em,
+div.content dl.method > dt em,
+div.content dl.attribute > dt em,
+div.content div.heading-fixed > div.inner em {
+  color: orangered;
+}
+div.content dl.class > dt span.sig-paren,
+div.content dl.method > dt span.sig-paren,
+div.content dl.attribute > dt span.sig-paren,
+div.content div.heading-fixed > div.inner span.sig-paren {
+  font-weight: bold;
+}
+div.content dl.class > dt code.descname,
+div.content dl.method > dt code.descname,
+div.content dl.attribute > dt code.descname,
+div.content div.heading-fixed > div.inner code.descname {
+  font-weight: bold;
+}
+div.content dl.class > dt code.descclassname,
+div.content dl.method > dt code.descclassname,
+div.content dl.attribute > dt code.descclassname,
+div.content div.heading-fixed > div.inner code.descclassname {
+  color: #a0a0a0;
+  font-style: italic;
+}
+div.content div.heading-fixed > div.inner {
+  margin: 0rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  line-height: 3rem;
+  background: initial;
+}
+div.content dl.class > dt > em.property,
+div.content div.heading-fixed > div.inner em.property {
+  display: inline-block;
+  padding: 0rem .35rem;
+  margin-right: .35rem;
+  font-weight: bold;
+  font-size: .8rem;
+  line-height: 1.5rem;
+  background: red;
+  color: #ffffff;
+}
+div.content div.heading-fixed {
+  position: fixed;
+  top: 0rem;
+  left: 20rem;
+  right: 0rem;
+  height: 3rem;
+  background: #fff;
+  border-bottom: 1px solid #e0e0e0;
+  z-index: 10000;
+}
+div.content p {
+  line-height: 1.35rem;
+  max-width: 50em;
+}
+div.content p code {
+  font-family: monospace;
+  padding: .2rem;
+  background: rgba(255, 69, 0, 0.1);
+}
+div.content p code span.pre {
+  word-wrap: pre;
+}
+/* Content styles */
+h1 > a.headerlink,
+h2 > a.headerlink,
+h3 > a.headerlink,
+h4 > a.headerlink,
+h5 > a.headerlink,
+h6 > a.headerlink,
+div.section dl > dt > a.headerlink,
+div.heading-fixed a.headerlink {
+  visibility: hidden;
+  text-decoration: none;
+}
+h1 > a.headerlink:before,
+h2 > a.headerlink:before,
+h3 > a.headerlink:before,
+h4 > a.headerlink:before,
+h5 > a.headerlink:before,
+h6 > a.headerlink:before,
+div.section dl > dt > a.headerlink:before,
+div.heading-fixed a.headerlink:before {
+  visibility: visible;
+  margin-left: .5rem;
+  content: 'pmlnk';
+  font-size: 1rem;
+  color: #646464;
+  text-decoration: none;
 }

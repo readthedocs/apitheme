@@ -1,6 +1,7 @@
 var gulp = require('gulp'),
     browserify = require('browserify'),
     debowerify = require('debowerify'),
+    aliasify = require('aliasify'),
     jshint = require('gulp-jshint'),
     less = require('gulp-less'),
     bower_resolve = require('less-plugin-bower-resolve'),
@@ -21,29 +22,28 @@ gulp.task('lint', function () {
 gulp.task('build', function () {
     return es.merge([
         build_js(),
-        build_css()
+        build_css(),
+        build_demo_docs()
     ]);
 });
 
 gulp.task('dev', function (done) {
     util.log('Continually building source files');
 
-    demo_doc_stream = build_demo_docs();
-
-    watch(['static/css/*'], {awaitWriteFinish: true}, function (file) {
+    watch(['static/css/**/*'], {awaitWriteFinish: true}, function (file) {
         util.log('File changed:', file.path);
         build_css()
-            .pipe(demo_doc_stream);
+            .pipe(build_demo_docs());
     });
-    watch(['static/js/*'], {awaitWriteFinish: true}, function (file) {
+    watch(['static/js/**/*'], {awaitWriteFinish: true}, function (file) {
         util.log('File changed:', file.path);
         build_js()
-            .pipe(demo_doc_stream);
+            .pipe(build_demo_docs());
     });
     watch(['apitheme/*.html'], {awaitWriteFinish: true}, function (file) {
         util.log('File changed:', file.path);
         es.readArray([file])
-            .pipe(demo_doc_stream);
+            .pipe(build_demo_docs());
     });
 });
 
@@ -60,7 +60,14 @@ function build_js () {
     var builder = browserify({
         entries: ['static/js/theme.js'],
         debug: true,
-        transform: [debowerify]
+        transform: [
+            aliasify.configure({
+                aliases: {
+                    waypoints: './bower_components/waypoints/lib/jquery.waypoints.js'
+                }
+            }),
+            debowerify
+        ]
     });
 
     return builder.bundle()
@@ -72,16 +79,20 @@ function build_js () {
 function build_css () {
     util.log('Building CSS stylesheets');
 
-    return gulp.src('static/css/theme.less')
-        .pipe(less({
-            lint: true,
-            plugins: [bower_resolve]
-        }))
-        .on('error', function (ev) {
-            util.beep();
-            util.log('LESS error:', ev.message);
-        })
-        .pipe(gulp.dest('apitheme/static/css/'));
+    return es.merge(
+        gulp.src('static/css/theme.less')
+            .pipe(less({
+                lint: true,
+                plugins: [bower_resolve]
+            }))
+            .on('error', function (ev) {
+                util.beep();
+                util.log('LESS error:', ev.message);
+            })
+            .pipe(gulp.dest('apitheme/static/css/')),
+        gulp.src('bower_components/notosans-fontface/fonts/*.{ttf,woff,woff2}')
+            .pipe(gulp.dest('apitheme/static/font/'))
+    )
 }
 
 function build_demo_docs (stream, done) {
