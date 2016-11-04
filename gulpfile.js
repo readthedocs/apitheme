@@ -91,6 +91,8 @@ function build_css () {
             })
             .pipe(gulp.dest('apitheme/static/css/')),
         gulp.src('bower_components/notosans-fontface/fonts/*.{ttf,woff,woff2}')
+            .pipe(gulp.dest('apitheme/static/font/')),
+        gulp.src('bower_components/font-awesome/fonts/*-webfont.*')
             .pipe(gulp.dest('apitheme/static/font/'))
     )
 }
