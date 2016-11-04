@@ -485,8 +485,11 @@ a:hover {
 .util-shadow-5 {
   box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
 }
+/* Footer */
 /* Breadcrumbs */
+/* Buttons */
 /* Form elements */
+/* Navigation */
 /* Construct signatures */
 /* Variables */
 /* Style application */
@@ -820,7 +823,6 @@ div.content p code span.pre {
 }
 div.content section.content-heading {
   padding: 4rem 0rem;
-  overflow: auto;
 }
 div.content section.content-heading h1 {
   font-size: 1rem;
@@ -1029,6 +1031,37 @@ nav.sidebar section.sidebar-toc > ul > li > ul > li > ul > li > ul > li {
 }
 nav.sidebar section.sidebar-toc a > code {
   font-family: 'Noto Sans', sans-serif;
+}
+footer {
+  margin-left: 20rem;
+  max-width: 60rem;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: .9rem;
+  text-align: center;
+}
+footer hr {
+  display: block;
+  width: 75%;
+  height: 1px;
+  margin: 2rem auto;
+  border: 0px;
+  background: rgba(255, 255, 255, 0.25);
+}
+footer div.inner {
+  padding: 2rem;
+}
+footer ul.footer-buttons {
+  padding-left: 0rem;
+  list-style: none;
+  display: inline-block;
+}
+footer ul.footer-buttons li {
+  display: inline-block;
+  list-style: none;
+  padding-left: 0rem;
+}
+footer ul.footer-buttons li a {
+  display: inline-block;
 }
 /* Content styles */
 h1 > a.headerlink,

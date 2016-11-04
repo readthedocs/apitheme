@@ -6,8 +6,11 @@
 @import 'components/content';
 @import 'components/sidebar';
 @import 'components/header';
+@import 'components/footer';
 @import 'elements/breadcrumbs';
+@import 'elements/button';
 @import 'elements/forms';
+@import 'elements/navigation';
 @import 'elements/signature';
 
 /* Variables */
@@ -101,7 +104,6 @@ div.content {
 
     section.content-heading {
         padding: 4rem 0rem;
-        overflow: auto;
 
         h1 {
             .ui_heading();
@@ -161,6 +163,18 @@ nav.sidebar {
         a > code {
             font-family: 'Noto Sans', sans-serif;
         }
+    }
+}
+
+footer {
+    .ui-footer(@color-nav-fg);
+
+    div.inner {
+        .ui-footer-inner();
+    }
+
+    ul.footer-buttons {
+        .element-button-bar();
     }
 }
 
