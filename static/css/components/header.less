@@ -1,13 +1,17 @@
 /* Header */
 
 @import '../variables';
+@import '../util';
 
 .ui_header () {
     height: @header-height;
     overflow: hidden;
-    background: @color-nav-bg;
-    color: @color-nav-fg;
     z-index: 10000;
+
+    background: @color-header-bg;
+    color: @color-header-fg;
+
+    .util-shadow-1();
 
     .ui_header_left () {
         display: block;

@@ -4,7 +4,7 @@
 
 .element_signature () {
     em {
-        color: orangered;
+        color: lighten(@color-primary, 10%);
     }
 
     span.sig-paren {
@@ -20,14 +20,14 @@
         font-style: italic;
     }
 
-    > em.property {
+    > em.property:first-child {
         display: inline-block;
         padding: 0rem .35rem;
         margin-right: .35rem;
         font-weight: bold;
         font-size: .8rem;
         line-height: 1.5rem;
-        background: red;
-        color: #ffffff;
+        background: rgba(255, 255, 255, 0.1);
+        color: lighten(@color-primary, 10%);
     }
 }

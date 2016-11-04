@@ -411,6 +411,23 @@ https://www.google.com/get/noto/
 Eventually, if necessary, this list of fonts can be extended to support more
 unicode ranges.
 */
+/* FONT PATH
+ * -------------------------- */
+@font-face {
+  font-family: 'FontAwesome';
+  src: url('../fonts/fontawesome-webfont.eot?v=4.7.0');
+  src: url('../fonts/fontawesome-webfont.eot?#iefix&v=4.7.0') format('embedded-opentype'), url('../fonts/fontawesome-webfont.woff2?v=4.7.0') format('woff2'), url('../fonts/fontawesome-webfont.woff?v=4.7.0') format('woff'), url('../fonts/fontawesome-webfont.ttf?v=4.7.0') format('truetype'), url('../fonts/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+.fa {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 @font-face {
   font-family: 'Noto Sans';
   src: url('../font/NotoSans-Regular.eot');
@@ -441,17 +458,33 @@ unicode ranges.
 }
 a:link,
 a:visited {
-  color: orangered;
+  color: #2196F3;
 }
 a:active,
 a:hover {
-  color: #ff7d4d;
+  color: #6ab8f7;
 }
 /* Content */
 /* Positioning */
 /* Colors */
 /* Sidebar */
 /* Header */
+/* Utility methods */
+.util-shadow-1 {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+.util-shadow-2 {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+.util-shadow-3 {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+.util-shadow-4 {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+.util-shadow-5 {
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+}
 /* Breadcrumbs */
 /* Form elements */
 /* Construct signatures */
@@ -461,15 +494,16 @@ a:hover {
 body {
   font-family: 'Noto Sans', sans-serif;
   font-size: 16px;
-  background: #f0f0f0;
-  color: #313131;
+  background: #37474F;
+  color: #ffffff;
 }
 nav.header {
   height: 4rem;
   overflow: hidden;
-  background: #f0f0f0;
-  color: #313131;
   z-index: 10000;
+  background: #263238;
+  color: #ffffff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   position: fixed;
   top: 0rem;
   left: 0rem;
@@ -489,8 +523,9 @@ nav.header div.header-search div.inner {
 nav.header div.header-search div.element.input-search {
   display: inline-block;
   position: relative;
-  background: #dddddd;
-  color: #313131;
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  border-radius: 2px;
   display: block;
   width: 100%;
   box-sizing: border-box;
@@ -505,11 +540,18 @@ nav.header div.header-search div.element.input-search input[type='text'] {
   background: inherit;
   color: inherit;
   outline: 0rem;
-  -webkit-appearance: none;
-  -moz-appearance: none;
+  transistion: all 1s;
 }
 nav.header div.header-search div.element.input-search input[type='text']:focus {
-  background: #cacaca;
+  background: rgba(255, 255, 255, 0.19);
+  transistion: all 1s;
+}
+nav.header div.header-search div.element.input-search input[type='text']::-webkit-input-placeholder,
+nav.header div.header-search div.element.input-search input[type='text']::-moz-placeholder,
+nav.header div.header-search div.element.input-search input[type='text']:-ms-input-placeholder,
+nav.header div.header-search div.element.input-search input[type='text']:-moz-placeholder,
+nav.header div.header-search div.element.input-search input[type='text']::placeholder {
+  color: rgba(255, 255, 255, 0.75);
 }
 nav.header div.header-search div.element.input-search input[type='text'] {
   padding-left: 2.65rem;
@@ -523,6 +565,20 @@ nav.header div.header-search div.element.input-search div.input-search-icon {
   left: 0rem;
   height: 100%;
   width: 2rem;
+  text-align: center;
+  color: #ffffff;
+}
+nav.header div.header-search div.element.input-search div.input-search-icon:before {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  position: absolute;
+  content: "\f002";
+  top: .65rem;
+  height: 100%;
 }
 nav.header div.header-main {
   display: block;
@@ -539,7 +595,7 @@ nav.header div.header-main-content div.inner {
   background: initial;
 }
 nav.header div.header-main-content div.inner em {
-  color: orangered;
+  color: #51adf6;
 }
 nav.header div.header-main-content div.inner span.sig-paren {
   font-weight: bold;
@@ -551,18 +607,25 @@ nav.header div.header-main-content div.inner code.descclassname {
   color: #a0a0a0;
   font-style: italic;
 }
-nav.header div.header-main-content div.inner > em.property {
+nav.header div.header-main-content div.inner > em.property:first-child {
   display: inline-block;
   padding: 0rem .35rem;
   margin-right: .35rem;
   font-weight: bold;
   font-size: .8rem;
   line-height: 1.5rem;
-  background: red;
-  color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
+  color: #51adf6;
 }
 div.content {
+  max-width: 60rem;
   margin-left: 20rem;
+  padding: 4rem 2rem 2rem 2rem;
+  overflow: auto;
+  background: #fcfcfc;
+  color: #313131;
+  border-radius: 2px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 div.content h1 {
   margin-top: 3rem;
@@ -580,7 +643,7 @@ div.content h1 a {
   text-decoration: none;
 }
 div.content h1 a:hover {
-  border-bottom: 1px dotted #ff6a33;
+  border-bottom: 1px dotted #51adf6;
 }
 div.content h2 {
   margin-top: 3rem;
@@ -598,7 +661,7 @@ div.content h2 a {
   text-decoration: none;
 }
 div.content h2 a:hover {
-  border-bottom: 1px dotted #ff6a33;
+  border-bottom: 1px dotted #51adf6;
 }
 div.content h3 {
   margin-top: 3rem;
@@ -616,7 +679,7 @@ div.content h3 a {
   text-decoration: none;
 }
 div.content h3 a:hover {
-  border-bottom: 1px dotted #ff6a33;
+  border-bottom: 1px dotted #51adf6;
 }
 div.content h4 {
   margin-top: 3rem;
@@ -634,7 +697,7 @@ div.content h4 a {
   text-decoration: none;
 }
 div.content h4 a:hover {
-  border-bottom: 1px dotted #ff6a33;
+  border-bottom: 1px dotted #51adf6;
 }
 div.content h5 {
   margin-top: 3rem;
@@ -652,7 +715,7 @@ div.content h5 a {
   text-decoration: none;
 }
 div.content h5 a:hover {
-  border-bottom: 1px dotted #ff6a33;
+  border-bottom: 1px dotted #51adf6;
 }
 div.content h6 {
   margin-top: 3rem;
@@ -670,7 +733,7 @@ div.content h6 a {
   text-decoration: none;
 }
 div.content h6 a:hover {
-  border-bottom: 1px dotted #ff6a33;
+  border-bottom: 1px dotted #51adf6;
 }
 div.content dl.class > dt,
 div.content dl.method > dt,
@@ -684,7 +747,7 @@ div.content dl.attribute > dt {
   letter-spacing: .02em;
   line-height: 1.5rem;
   padding: .75rem;
-  background: #f4f4f4;
+  background: #ECEFF1;
   font-family: "Noto Sans", sans-serif;
 }
 div.content dl.class > dt code,
@@ -703,13 +766,13 @@ div.content dl.class > dt a:hover,
 div.content dl.method > dt a:hover,
 div.content dl.function > dt a:hover,
 div.content dl.attribute > dt a:hover {
-  border-bottom: 1px dotted #ff6a33;
+  border-bottom: 1px dotted #51adf6;
 }
 div.content dl.class > dt em,
 div.content dl.method > dt em,
 div.content dl.function > dt em,
 div.content dl.attribute > dt em {
-  color: orangered;
+  color: #51adf6;
 }
 div.content dl.class > dt span.sig-paren,
 div.content dl.method > dt span.sig-paren,
@@ -730,18 +793,18 @@ div.content dl.attribute > dt code.descclassname {
   color: #a0a0a0;
   font-style: italic;
 }
-div.content dl.class > dt > em.property,
-div.content dl.method > dt > em.property,
-div.content dl.function > dt > em.property,
-div.content dl.attribute > dt > em.property {
+div.content dl.class > dt > em.property:first-child,
+div.content dl.method > dt > em.property:first-child,
+div.content dl.function > dt > em.property:first-child,
+div.content dl.attribute > dt > em.property:first-child {
   display: inline-block;
   padding: 0rem .35rem;
   margin-right: .35rem;
   font-weight: bold;
   font-size: .8rem;
   line-height: 1.5rem;
-  background: red;
-  color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
+  color: #51adf6;
 }
 div.content p {
   line-height: 1.35rem;
@@ -750,15 +813,14 @@ div.content p {
 div.content p code {
   font-family: monospace;
   padding: .2rem;
-  background: rgba(255, 69, 0, 0.1);
+  background: rgba(33, 150, 243, 0.1);
 }
 div.content p code span.pre {
   word-wrap: pre;
 }
 div.content section.content-heading {
-  padding: 6rem 2rem;
+  padding: 4rem 0rem;
   overflow: auto;
-  max-width: 60rem;
 }
 div.content section.content-heading h1 {
   font-size: 1rem;
@@ -781,7 +843,7 @@ div.content section.content-heading h1 a {
   text-decoration: none;
 }
 div.content section.content-heading h1 a:hover {
-  border-bottom: 1px dotted #ff6a33;
+  border-bottom: 1px dotted #51adf6;
 }
 div.content section.content-heading h1 code {
   font-family: inherit;
@@ -790,7 +852,7 @@ div.content section.content-heading h1 a {
   text-decoration: none;
 }
 div.content section.content-heading h1 a:hover {
-  border-bottom: 1px dotted #ff6a33;
+  border-bottom: 1px dotted #51adf6;
 }
 div.content section.content-heading h2 {
   font-size: 1rem;
@@ -813,7 +875,7 @@ div.content section.content-heading h2 a {
   text-decoration: none;
 }
 div.content section.content-heading h2 a:hover {
-  border-bottom: 1px dotted #ff6a33;
+  border-bottom: 1px dotted #51adf6;
 }
 div.content section.content-heading h2 code {
   font-family: inherit;
@@ -822,7 +884,7 @@ div.content section.content-heading h2 a {
   text-decoration: none;
 }
 div.content section.content-heading h2 a:hover {
-  border-bottom: 1px dotted #ff6a33;
+  border-bottom: 1px dotted #51adf6;
 }
 div.content section.content-heading div.content-logo {
   float: right;
@@ -836,9 +898,10 @@ div.content section.content-heading div.content-logo img {
 div.content section.content-heading div.content-search div.element.input-search {
   display: inline-block;
   position: relative;
-  background: #dddddd;
-  color: #313131;
   box-sizing: border-box;
+  background: #37474F;
+  color: #ffffff;
+  border-radius: 2px;
   margin-top: 1rem;
 }
 div.content section.content-heading div.content-search div.element.input-search input[type='text'] {
@@ -851,11 +914,18 @@ div.content section.content-heading div.content-search div.element.input-search 
   background: inherit;
   color: inherit;
   outline: 0rem;
-  -webkit-appearance: none;
-  -moz-appearance: none;
+  transistion: all 1s;
 }
 div.content section.content-heading div.content-search div.element.input-search input[type='text']:focus {
-  background: #cacaca;
+  background: #4b5961;
+  transistion: all 1s;
+}
+div.content section.content-heading div.content-search div.element.input-search input[type='text']::-webkit-input-placeholder,
+div.content section.content-heading div.content-search div.element.input-search input[type='text']::-moz-placeholder,
+div.content section.content-heading div.content-search div.element.input-search input[type='text']:-ms-input-placeholder,
+div.content section.content-heading div.content-search div.element.input-search input[type='text']:-moz-placeholder,
+div.content section.content-heading div.content-search div.element.input-search input[type='text']::placeholder {
+  color: rgba(255, 255, 255, 0.75);
 }
 div.content section.content-heading div.content-search div.element.input-search input[type='text'] {
   padding-left: 2.65rem;
@@ -866,11 +936,23 @@ div.content section.content-heading div.content-search div.element.input-search 
   left: 0rem;
   height: 100%;
   width: 2rem;
+  text-align: center;
+  color: #ffffff;
+}
+div.content section.content-heading div.content-search div.element.input-search div.input-search-icon:before {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  position: absolute;
+  content: "\f002";
+  top: .65rem;
+  height: 100%;
 }
 div.content div.content-body {
-  padding: 4rem 2rem 2rem 2rem;
-  background: #fcfcfc;
-  color: #313131;
+  max-width: 60rem;
 }
 /* Sidebar */
 nav.sidebar {
@@ -884,10 +966,10 @@ nav.sidebar a {
 nav.sidebar a:link,
 nav.sidebar a:visited,
 nav.sidebar a:active {
-  color: #313131;
+  color: #ffffff;
 }
 nav.sidebar a:hover {
-  color: orangered;
+  color: #2196F3;
 }
 nav.sidebar div.inner {
   padding: 1rem 2rem;
@@ -968,10 +1050,16 @@ h5 > a.headerlink:before,
 h6 > a.headerlink:before,
 div.section dl > dt > a.headerlink:before,
 nav.header div.header-main-content a.headerlink:before {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   visibility: visible;
   margin-left: .5rem;
-  content: 'pmlnk';
+  content: "\f0c1";
   font-size: 1rem;
-  color: #646464;
+  color: rgba(49, 49, 49, 0.75);
   text-decoration: none;
 }

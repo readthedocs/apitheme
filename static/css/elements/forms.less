@@ -5,9 +5,11 @@
 .element_input_flat (@bg: @color-bg, @fg: @color-fg) {
     display: inline-block;
     position: relative;
-    background: mix(@bg, @fg, 90%);
-    color: @fg;
     box-sizing: border-box;
+
+    background: @bg;
+    color: @fg;
+    border-radius: 2px;
 
     input[type='text'] {
         width: 100%;
@@ -22,11 +24,20 @@
         color: inherit;
 
         outline: 0rem;
-        -webkit-appearance: none;
-        -moz-appearance: none;
+
+        transistion: all 1s;
 
         &:focus {
-            background: mix(@bg, @fg, 80%);
+            background: mix(@bg, @fg, 90%);
+            transistion: all 1s;
+        }
+
+        &::-webkit-input-placeholder,
+        &::-moz-placeholder,
+        &:-ms-input-placeholder,
+        &:-moz-placeholder,
+        &::placeholder {
+            color: fade(@fg, 75%);
         }
     }
 }
@@ -44,5 +55,15 @@
         left: 0rem;
         height: 100%;
         width: 2rem;
+        text-align: center;
+        color: @fg;
+
+        &:before {
+            .fa-icon();
+            position: absolute;
+            content: @fa-var-search;
+            top: .65rem;
+            height: 100%;
+        }
     }
 }

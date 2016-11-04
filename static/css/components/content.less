@@ -3,11 +3,14 @@
 @import '../variables';
 
 .ui_content () {
+    max-width: 60rem;
     margin-left: @sidebar-width;
+    padding: @header-height 2rem 2rem 2rem;
+    overflow: auto;
 
-    .ui_content_body () {
-        padding: @header-height 2rem 2rem 2rem;
-        background: @color-bg;
-        color: @color-fg;
-    }
+    background: @color-bg;
+    color: @color-fg;
+    border-radius: 2px;
+
+    .util-shadow-2();
 }

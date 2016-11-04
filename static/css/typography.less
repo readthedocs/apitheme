@@ -7,6 +7,13 @@ Eventually, if necessary, this list of fonts can be extended to support more
 unicode ranges.
 */
 
+// Font awesome pieces
+@import 'font-awesome/less/variables';
+@import 'font-awesome/less/mixins';
+@import 'font-awesome/less/path';
+@import 'font-awesome/less/core';
+
+// Noto Sans
 @notosans-fontface-path: '../font';
 
 .notosans-fontface(@type, @weight, @style) {
@@ -31,6 +38,7 @@ unicode ranges.
 .notosans-fontface('Italic', 400, italic);
 .notosans-fontface('BoldItalic', 700, italic);
 
+// Elements
 .ui_heading (@size: 1rem) {
     margin-top: 3rem;
     margin-bottom: 1rem;
@@ -60,7 +68,7 @@ unicode ranges.
 .ui_heading_block (@size: 1rem) {
     .ui_heading(@size);
     padding: .75rem;
-    background: #f4f4f4;
+    background: @color-primary-bg;
     font-family: "Noto Sans", sans-serif;
 }
 

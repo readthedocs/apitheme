@@ -36,7 +36,7 @@ nav.header {
         }
 
         div.element.input-search {
-            .element_input_search(@color-nav-bg, @color-nav-fg);
+            .element_input_search(rgba(255,255,255,0.1), @color-header-fg);
             display: block;
             width: 100%;
             box-sizing: border-box;
@@ -100,9 +100,8 @@ div.content {
     }
 
     section.content-heading {
-        padding: 6rem 2rem;
+        padding: 4rem 0rem;
         overflow: auto;
-        max-width: 60rem;
 
         h1 {
             .ui_heading();
@@ -137,7 +136,7 @@ div.content {
     }
 
     div.content-body {
-        .ui_content_body();
+        max-width: 60rem;
     }
 }
 
@@ -186,11 +185,12 @@ h5 > a.headerlink:before,
 h6 > a.headerlink:before,
 div.section dl > dt > a.headerlink:before,
 nav.header div.header-main-content a.headerlink:before {
+    .fa-icon();
     visibility: visible;
     margin-left: .5rem;
-    content: 'pmlnk';
+    content: @fa-var-link;
     font-size: 1rem;
-    color: lighten(@color-fg, 20%);
+    color: fade(@color-fg, 75%);
     text-decoration: none;
 }
 
