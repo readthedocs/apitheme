@@ -1582,3 +1582,14 @@ nav.header div.header-main-content a.headerlink:before {
   color: rgba(49, 49, 49, 0.75);
   text-decoration: none;
 }
+table.field-list th.field-name {
+  display: block;
+  text-align: left;
+}
+table.field-list td.field-body {
+  display: block;
+  text-align: left;
+}
+table.field-list td.field-body p {
+  margin-top: 0rem;
+}
