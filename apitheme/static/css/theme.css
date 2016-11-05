@@ -577,6 +577,7 @@ nav.header div.header-search {
   margin-right: 0.83333333%;
   *zoom: 1;
   height: 4rem;
+  transition: all .3s ease;
 }
 nav.header div.header-search:before,
 nav.header div.header-search:after {
@@ -795,6 +796,7 @@ nav.header div.header-main:after {
   }
 }
 nav.header div.header-main div.header-main-content {
+  display: inline-block;
   padding: .75rem;
 }
 nav.header div.header-main-content div.inner {
@@ -1375,6 +1377,7 @@ nav.sidebar {
     width: @sidebar-width;
     */
   margin: 4rem 0rem 2rem 0rem;
+  transition: all .3s ease;
 }
 nav.sidebar a {
   text-decoration: none;
@@ -1445,6 +1448,71 @@ nav.sidebar section.sidebar-toc > ul > li > ul > li > ul > li > ul > li {
 }
 nav.sidebar section.sidebar-toc a > code {
   font-family: 'Noto Sans', sans-serif;
+}
+nav.sidebar ul.sidebar-buttons {
+  display: inline-block;
+  list-style: none;
+  padding: 0rem;
+  margin: .5rem 0rem;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  border-radius: .3rem;
+}
+nav.sidebar ul.sidebar-buttons li {
+  display: block;
+  float: left;
+  list-style: none;
+  margin: 0rem;
+  border-left: 1px solid rgba(252, 252, 252, 0.3);
+}
+nav.sidebar ul.sidebar-buttons li a,
+nav.sidebar ul.sidebar-buttons li button,
+nav.sidebar ul.sidebar-buttons li input[type='submit'] {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.2);
+  color: #fcfcfc;
+  padding: .75rem;
+  border: 0rem;
+  outline: 0rem;
+  border-radius: .3rem;
+  cursor: pointer;
+  text-decoration: none;
+  border-radius: 0rem;
+  min-width: 1.2rem;
+  text-align: center;
+}
+nav.sidebar ul.sidebar-buttons li a:hover,
+nav.sidebar ul.sidebar-buttons li button:hover,
+nav.sidebar ul.sidebar-buttons li input[type='submit']:hover {
+  background: rgba(252, 252, 252, 0.6);
+}
+nav.sidebar ul.sidebar-buttons li:first-child {
+  border-left: 0rem;
+}
+nav.sidebar ul.sidebar-buttons li.sidebar-buttons-home a {
+  content: "";
+}
+nav.sidebar ul.sidebar-buttons li.sidebar-buttons-home a:before {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content: "\f015";
+}
+nav.sidebar ul.sidebar-buttons li.sidebar-buttons-home a span {
+  display: none;
+}
+nav.sidebar ul.sidebar-parents li a:before {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin-right: .3rem;
+  content: "\f148";
 }
 footer {
   overflow: hidden;
@@ -1578,9 +1646,45 @@ footer div.inner:after {
   }
 }
 footer ul.footer-buttons {
+  padding: 0rem;
+  margin: .5rem 0rem;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  border-radius: .3rem;
   padding-left: 0rem;
   list-style: none;
   display: inline-block;
+}
+footer ul.footer-buttons li {
+  display: block;
+  float: left;
+  list-style: none;
+  margin: 0rem;
+  border-left: 1px solid rgba(49, 49, 49, 0.3);
+}
+footer ul.footer-buttons li a,
+footer ul.footer-buttons li button,
+footer ul.footer-buttons li input[type='submit'] {
+  display: inline-block;
+  background: #2196F3;
+  color: #313131;
+  padding: .75rem;
+  border: 0rem;
+  outline: 0rem;
+  border-radius: .3rem;
+  cursor: pointer;
+  text-decoration: none;
+  border-radius: 0rem;
+  min-width: 1.2rem;
+  text-align: center;
+}
+footer ul.footer-buttons li a:hover,
+footer ul.footer-buttons li button:hover,
+footer ul.footer-buttons li input[type='submit']:hover {
+  background: #296492;
+}
+footer ul.footer-buttons li:first-child {
+  border-left: 0rem;
 }
 footer ul.footer-buttons li {
   display: inline-block;
@@ -1589,6 +1693,23 @@ footer ul.footer-buttons li {
 }
 footer ul.footer-buttons li a {
   display: inline-block;
+  background: #2196F3;
+  color: #313131;
+  padding: .75rem;
+  border: 0rem;
+  outline: 0rem;
+  border-radius: .3rem;
+  cursor: pointer;
+  text-decoration: none;
+}
+footer ul.footer-buttons li a:hover {
+  background: #296492;
+}
+footer ul.footer-buttons li a:hover {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+footer ul.footer-buttons li a:active {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 /* Content styles */
 h1 > a.headerlink,

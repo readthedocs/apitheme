@@ -90,10 +90,6 @@
 
           {% block header_main %}
             <div class="header-main">
-              {% block header_breadcrumbs %}
-                {# include "breadcrumbs.html" #}
-              {% endblock %}
-
               <div class="header-main-content"></div>
             </div>
           {% endblock %}
@@ -105,20 +101,38 @@
       {% block sidebar %}
         <nav class="sidebar">
           <div class="inner">
-            {% block sidebar_version %}
-              {%- set _version = version %}
-              {% if READTHEDOCS and current_version %}
-                {%- set _version = current_version %}
-              {% endif %}
-              {% if _version %}
-                <div class="sidebar-version">
-                  {{ _version }}
-                </div>
-              {% endif %}
+
+            {% block sidebar_buttons %}
+              <ul class="sidebar-buttons">
+                <li class="sidebar-buttons-home">
+                  <a href="{{ pathto(master_doc) }}"><span>{{ project }}</span></a>
+                </li>
+                {%- set _version = version %}
+                {% if READTHEDOCS and current_version %}
+                  {%- set _version = current_version %}
+                {% endif %}
+                {% if _version %}
+                  <li class="sidebar-buttons-version">
+                    <a href="{{ pathto(master_doc) }}"><span>{{ _version }}</span></a>
+                  </li>
+                {% endif %}
+              </ul>
             {% endblock %}
 
             {% set toctree = toctree(maxdepth=4, collapse=false, includehidden=True) %}
             <section class="sidebar-toc {% if not toctree %}sidebar-toc-local{% endif %}">
+              {% block sidebar_parents %}
+                {% if parents %}
+                  <ul class="sidebar-parents">
+                    {% for doc in parents %}
+                      <li>
+                        <a href="{{ doc.link|e }}">{{ doc.title }}</a>
+                      </li>
+                    {% endfor %}
+                  </ul>
+                {% endif %}
+              {% endblock %}
+
               {{ toc }}
             </section>
           </div>

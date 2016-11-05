@@ -1,8 +1,66 @@
 /* Buttons */
 
 @import '../variables';
+@import '../util';
+
+.element-button-base (@bg: @color-primary, @fg: @color-fg) {
+    display: inline-block;
+    background: @bg;
+    color: @fg;
+    padding: .75rem;
+    border: 0rem;
+    outline: 0rem;
+
+    border-radius: .3rem;
+    cursor: pointer;
+
+    text-decoration: none;
+
+    &:hover {
+        background: mix(@bg, @fg, 50%);
+    }
+}
+
+.element-button-raised () {
+    &:hover {
+        .util-shadow-1();
+    }
+    &:active {
+        .util-shadow-2();
+    }
+}
 
 .element-button (@bg: @color-primary, @fg: @color-fg) {
-    display: inline-block;
+    .element-button-base(@bg, @fg);
+    .element-button-raised();
+}
 
+.element-button-bar (@bg: @color-primary, @fg: @color-fg) {
+    display: inline-block;
+    list-style: none;
+    padding: 0rem;
+    margin: .5rem 0rem;
+    overflow: hidden;
+
+    .util-shadow-1();
+    border-radius: .3rem;
+
+    li {
+        display: block;
+        float: left;
+        list-style: none;
+        margin: 0rem;
+        border-left: 1px solid fade(@fg, 30%);
+
+        a, button, input[type='submit'] {
+            .element-button-base(@bg, @fg);
+            border-radius: 0rem;
+            min-width: 1.2rem;
+            text-align: center;
+        }
+
+        &:first-child {
+            border-left: 0rem;
+        }
+    }
 }
