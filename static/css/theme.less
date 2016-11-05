@@ -21,7 +21,6 @@
 /* Section styles */
 body {
     font-family: 'Noto Sans', sans-serif;
-    font-size: 16px;
     background: @color-nav-bg;
     color: @color-nav-fg;
 }
@@ -33,7 +32,7 @@ nav.header {
         .ui_header_left();
 
         div.inner {
-            padding: .75rem;
+            padding: .75rem 0rem;
             width: 100%;
             box-sizing: border-box;
         }
@@ -72,8 +71,24 @@ nav.header {
 
 }
 
-div.content {
-    .ui_content();
+div.main {
+    .ui-grid-block();
+
+    nav.sidebar {
+        .ui-grid-column-sidebar();
+    }
+
+    article {
+        .ui-grid-column-content();
+    }
+}
+
+article {
+    .ui-content();
+
+    div.content {
+        .ui-content-body();
+    }
 
     h1 { .ui_heading(1.3rem); }
     h2 { .ui_heading(1.2rem); }
@@ -138,7 +153,6 @@ div.content {
     }
 
     div.content-body {
-        max-width: 60rem;
     }
 }
 

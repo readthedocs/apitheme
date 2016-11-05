@@ -7,6 +7,8 @@ Eventually, if necessary, this list of fonts can be extended to support more
 unicode ranges.
 */
 
+@import 'util';
+
 // Font awesome pieces
 @import 'font-awesome/less/variables';
 @import 'font-awesome/less/mixins';
@@ -39,6 +41,18 @@ unicode ranges.
 .notosans-fontface('Bold', 700, normal);
 .notosans-fontface('Italic', 400, italic);
 .notosans-fontface('BoldItalic', 700, italic);
+
+// Global
+html {
+    font-size: 18px;
+
+    .util-media(@screen-size-l, {
+        font-size: 16px;
+    });
+    .util-media(@screen-size-m2, {
+        font-size: 14px;
+    });
+}
 
 // Elements
 .ui_heading (@size: 1rem) {

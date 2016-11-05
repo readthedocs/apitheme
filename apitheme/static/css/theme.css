@@ -411,6 +411,15 @@ https://www.google.com/get/noto/
 Eventually, if necessary, this list of fonts can be extended to support more
 unicode ranges.
 */
+/* Utility mixins */
+/* Misc */
+/* Media queries
+
+Material layout breakpoints:
+https://material.google.com/layout/responsive-ui.html#responsive-ui-breakpoints
+
+*/
+/* Material mixins */
 .fa {
   display: inline-block;
   font: normal normal normal 14px/1 FontAwesome;
@@ -456,6 +465,19 @@ unicode ranges.
   font-weight: 700;
   font-style: italic;
 }
+html {
+  font-size: 18px;
+}
+@media (max-width: 1280px), (max-device-width: 1280px) {
+  html {
+    font-size: 16px;
+  }
+}
+@media (max-width: 960px), (max-device-width: 960px) {
+  html {
+    font-size: 14px;
+  }
+}
 a:link,
 a:visited {
   color: #2196F3;
@@ -467,24 +489,9 @@ a:hover {
 /* Content */
 /* Positioning */
 /* Colors */
+/* Grid */
 /* Sidebar */
 /* Header */
-/* Utility methods */
-.util-shadow-1 {
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-}
-.util-shadow-2 {
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-}
-.util-shadow-3 {
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-}
-.util-shadow-4 {
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-}
-.util-shadow-5 {
-  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
-}
 /* Footer */
 /* Breadcrumbs */
 /* Buttons */
@@ -496,14 +503,17 @@ a:hover {
 /* Section styles */
 body {
   font-family: 'Noto Sans', sans-serif;
-  font-size: 16px;
   background: #37474F;
   color: #ffffff;
 }
 nav.header {
   height: 4rem;
-  overflow: hidden;
   z-index: 10000;
+  overflow: hidden;
+  display: block;
+  width: 100%;
+  margin-left: 0%;
+  *zoom: 1;
   background: #263238;
   color: #ffffff;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
@@ -512,14 +522,121 @@ nav.header {
   left: 0rem;
   right: 0rem;
 }
+nav.header:before,
+nav.header:after {
+  content: "";
+  display: table;
+}
+nav.header:after {
+  clear: both;
+}
+@media (max-width: 840px), (max-device-width: 840px) {
+  nav.header {
+    overflow: hidden;
+    display: block;
+    width: 100%;
+    margin-left: 0%;
+    *zoom: 1;
+  }
+  nav.header:before,
+  nav.header:after {
+    content: "";
+    display: table;
+  }
+  nav.header:after {
+    clear: both;
+  }
+}
+@media (max-width: 480px), (max-device-width: 480px) {
+  nav.header {
+    overflow: hidden;
+    display: block;
+    width: 100%;
+    margin-left: 0%;
+    *zoom: 1;
+  }
+  nav.header:before,
+  nav.header:after {
+    content: "";
+    display: table;
+  }
+  nav.header:after {
+    clear: both;
+  }
+}
 nav.header div.header-search {
-  display: block;
+  display: inline;
   float: left;
-  width: 20rem;
+  width: 23.33333333%;
+  margin-left: 0.83333333%;
+  margin-right: 0.83333333%;
+  *zoom: 1;
   height: 4rem;
 }
+nav.header div.header-search:before,
+nav.header div.header-search:after {
+  content: "";
+  display: table;
+}
+nav.header div.header-search:after {
+  clear: both;
+}
+@media (max-width: 960px), (max-device-width: 960px) {
+  nav.header div.header-search {
+    display: inline;
+    float: left;
+    width: 22.5%;
+    margin-left: 1.25%;
+    margin-right: 1.25%;
+    *zoom: 1;
+  }
+  nav.header div.header-search:before,
+  nav.header div.header-search:after {
+    content: "";
+    display: table;
+  }
+  nav.header div.header-search:after {
+    clear: both;
+  }
+}
+@media (max-width: 600px), (max-device-width: 600px) {
+  nav.header div.header-search {
+    display: inline;
+    float: left;
+    width: 97.5%;
+    margin-left: 1.25%;
+    margin-right: 1.25%;
+    *zoom: 1;
+  }
+  nav.header div.header-search:before,
+  nav.header div.header-search:after {
+    content: "";
+    display: table;
+  }
+  nav.header div.header-search:after {
+    clear: both;
+  }
+}
+@media (max-width: 480px), (max-device-width: 480px) {
+  nav.header div.header-search {
+    display: inline;
+    float: left;
+    width: 95%;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+    *zoom: 1;
+  }
+  nav.header div.header-search:before,
+  nav.header div.header-search:after {
+    content: "";
+    display: table;
+  }
+  nav.header div.header-search:after {
+    clear: both;
+  }
+}
 nav.header div.header-search div.inner {
-  padding: .75rem;
+  padding: .75rem 0rem;
   width: 100%;
   box-sizing: border-box;
 }
@@ -584,9 +701,75 @@ nav.header div.header-search div.element.input-search div.input-search-icon:befo
   height: 100%;
 }
 nav.header div.header-main {
-  display: block;
+  display: inline;
   float: left;
+  width: 65%;
+  margin-left: 0.83333333%;
+  margin-right: 0.83333333%;
+  *zoom: 1;
   height: 4rem;
+}
+nav.header div.header-main:before,
+nav.header div.header-main:after {
+  content: "";
+  display: table;
+}
+nav.header div.header-main:after {
+  clear: both;
+}
+@media (max-width: 960px), (max-device-width: 960px) {
+  nav.header div.header-main {
+    display: inline;
+    float: left;
+    width: 72.5%;
+    margin-left: 1.25%;
+    margin-right: 1.25%;
+    *zoom: 1;
+  }
+  nav.header div.header-main:before,
+  nav.header div.header-main:after {
+    content: "";
+    display: table;
+  }
+  nav.header div.header-main:after {
+    clear: both;
+  }
+}
+@media (max-width: 600px), (max-device-width: 600px) {
+  nav.header div.header-main {
+    display: inline;
+    float: left;
+    width: 97.5%;
+    margin-left: 1.25%;
+    margin-right: 1.25%;
+    *zoom: 1;
+  }
+  nav.header div.header-main:before,
+  nav.header div.header-main:after {
+    content: "";
+    display: table;
+  }
+  nav.header div.header-main:after {
+    clear: both;
+  }
+}
+@media (max-width: 480px), (max-device-width: 480px) {
+  nav.header div.header-main {
+    display: inline;
+    float: left;
+    width: 95%;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+    *zoom: 1;
+  }
+  nav.header div.header-main:before,
+  nav.header div.header-main:after {
+    content: "";
+    display: table;
+  }
+  nav.header div.header-main:after {
+    clear: both;
+  }
 }
 nav.header div.header-main div.header-main-content {
   padding: .75rem;
@@ -620,17 +803,207 @@ nav.header div.header-main-content div.inner > em.property:first-child {
   background: rgba(255, 255, 255, 0.1);
   color: #51adf6;
 }
-div.content {
-  max-width: 60rem;
-  margin-left: 20rem;
-  padding: 4rem 2rem 2rem 2rem;
+div.main {
+  overflow: hidden;
+  display: block;
+  width: 100%;
+  margin-left: 0%;
+  *zoom: 1;
+}
+div.main:before,
+div.main:after {
+  content: "";
+  display: table;
+}
+div.main:after {
+  clear: both;
+}
+@media (max-width: 840px), (max-device-width: 840px) {
+  div.main {
+    overflow: hidden;
+    display: block;
+    width: 100%;
+    margin-left: 0%;
+    *zoom: 1;
+  }
+  div.main:before,
+  div.main:after {
+    content: "";
+    display: table;
+  }
+  div.main:after {
+    clear: both;
+  }
+}
+@media (max-width: 480px), (max-device-width: 480px) {
+  div.main {
+    overflow: hidden;
+    display: block;
+    width: 100%;
+    margin-left: 0%;
+    *zoom: 1;
+  }
+  div.main:before,
+  div.main:after {
+    content: "";
+    display: table;
+  }
+  div.main:after {
+    clear: both;
+  }
+}
+div.main nav.sidebar {
+  display: inline;
+  float: left;
+  width: 23.33333333%;
+  margin-left: 0.83333333%;
+  margin-right: 0.83333333%;
+  *zoom: 1;
+}
+div.main nav.sidebar:before,
+div.main nav.sidebar:after {
+  content: "";
+  display: table;
+}
+div.main nav.sidebar:after {
+  clear: both;
+}
+@media (max-width: 960px), (max-device-width: 960px) {
+  div.main nav.sidebar {
+    display: inline;
+    float: left;
+    width: 22.5%;
+    margin-left: 1.25%;
+    margin-right: 1.25%;
+    *zoom: 1;
+  }
+  div.main nav.sidebar:before,
+  div.main nav.sidebar:after {
+    content: "";
+    display: table;
+  }
+  div.main nav.sidebar:after {
+    clear: both;
+  }
+}
+@media (max-width: 600px), (max-device-width: 600px) {
+  div.main nav.sidebar {
+    display: inline;
+    float: left;
+    width: 97.5%;
+    margin-left: 1.25%;
+    margin-right: 1.25%;
+    *zoom: 1;
+  }
+  div.main nav.sidebar:before,
+  div.main nav.sidebar:after {
+    content: "";
+    display: table;
+  }
+  div.main nav.sidebar:after {
+    clear: both;
+  }
+}
+@media (max-width: 480px), (max-device-width: 480px) {
+  div.main nav.sidebar {
+    display: inline;
+    float: left;
+    width: 95%;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+    *zoom: 1;
+  }
+  div.main nav.sidebar:before,
+  div.main nav.sidebar:after {
+    content: "";
+    display: table;
+  }
+  div.main nav.sidebar:after {
+    clear: both;
+  }
+}
+div.main article {
+  display: inline;
+  float: left;
+  width: 65%;
+  margin-left: 0.83333333%;
+  margin-right: 0.83333333%;
+  *zoom: 1;
+}
+div.main article:before,
+div.main article:after {
+  content: "";
+  display: table;
+}
+div.main article:after {
+  clear: both;
+}
+@media (max-width: 960px), (max-device-width: 960px) {
+  div.main article {
+    display: inline;
+    float: left;
+    width: 72.5%;
+    margin-left: 1.25%;
+    margin-right: 1.25%;
+    *zoom: 1;
+  }
+  div.main article:before,
+  div.main article:after {
+    content: "";
+    display: table;
+  }
+  div.main article:after {
+    clear: both;
+  }
+}
+@media (max-width: 600px), (max-device-width: 600px) {
+  div.main article {
+    display: inline;
+    float: left;
+    width: 97.5%;
+    margin-left: 1.25%;
+    margin-right: 1.25%;
+    *zoom: 1;
+  }
+  div.main article:before,
+  div.main article:after {
+    content: "";
+    display: table;
+  }
+  div.main article:after {
+    clear: both;
+  }
+}
+@media (max-width: 480px), (max-device-width: 480px) {
+  div.main article {
+    display: inline;
+    float: left;
+    width: 95%;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+    *zoom: 1;
+  }
+  div.main article:before,
+  div.main article:after {
+    content: "";
+    display: table;
+  }
+  div.main article:after {
+    clear: both;
+  }
+}
+article {
+  padding: 4rem 0rem 2rem 0rem;
   overflow: auto;
+  border-radius: 2px;
   background: #fcfcfc;
   color: #313131;
-  border-radius: 2px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
-div.content h1 {
+article div.content {
+  padding: 2rem;
+}
+article h1 {
   margin-top: 3rem;
   margin-bottom: 1rem;
   font-weight: normal;
@@ -639,16 +1012,16 @@ div.content h1 {
   letter-spacing: .02em;
   line-height: 1.95rem;
 }
-div.content h1 code {
+article h1 code {
   font-family: inherit;
 }
-div.content h1 a {
+article h1 a {
   text-decoration: none;
 }
-div.content h1 a:hover {
+article h1 a:hover {
   border-bottom: 1px dotted #51adf6;
 }
-div.content h2 {
+article h2 {
   margin-top: 3rem;
   margin-bottom: 1rem;
   font-weight: normal;
@@ -657,16 +1030,16 @@ div.content h2 {
   letter-spacing: .02em;
   line-height: 1.8rem;
 }
-div.content h2 code {
+article h2 code {
   font-family: inherit;
 }
-div.content h2 a {
+article h2 a {
   text-decoration: none;
 }
-div.content h2 a:hover {
+article h2 a:hover {
   border-bottom: 1px dotted #51adf6;
 }
-div.content h3 {
+article h3 {
   margin-top: 3rem;
   margin-bottom: 1rem;
   font-weight: normal;
@@ -675,16 +1048,16 @@ div.content h3 {
   letter-spacing: .02em;
   line-height: 1.65rem;
 }
-div.content h3 code {
+article h3 code {
   font-family: inherit;
 }
-div.content h3 a {
+article h3 a {
   text-decoration: none;
 }
-div.content h3 a:hover {
+article h3 a:hover {
   border-bottom: 1px dotted #51adf6;
 }
-div.content h4 {
+article h4 {
   margin-top: 3rem;
   margin-bottom: 1rem;
   font-weight: normal;
@@ -693,16 +1066,16 @@ div.content h4 {
   letter-spacing: .02em;
   line-height: 1.5rem;
 }
-div.content h4 code {
+article h4 code {
   font-family: inherit;
 }
-div.content h4 a {
+article h4 a {
   text-decoration: none;
 }
-div.content h4 a:hover {
+article h4 a:hover {
   border-bottom: 1px dotted #51adf6;
 }
-div.content h5 {
+article h5 {
   margin-top: 3rem;
   margin-bottom: 1rem;
   font-weight: normal;
@@ -711,16 +1084,16 @@ div.content h5 {
   letter-spacing: .02em;
   line-height: 1.5rem;
 }
-div.content h5 code {
+article h5 code {
   font-family: inherit;
 }
-div.content h5 a {
+article h5 a {
   text-decoration: none;
 }
-div.content h5 a:hover {
+article h5 a:hover {
   border-bottom: 1px dotted #51adf6;
 }
-div.content h6 {
+article h6 {
   margin-top: 3rem;
   margin-bottom: 1rem;
   font-weight: normal;
@@ -729,19 +1102,19 @@ div.content h6 {
   letter-spacing: .02em;
   line-height: 1.5rem;
 }
-div.content h6 code {
+article h6 code {
   font-family: inherit;
 }
-div.content h6 a {
+article h6 a {
   text-decoration: none;
 }
-div.content h6 a:hover {
+article h6 a:hover {
   border-bottom: 1px dotted #51adf6;
 }
-div.content dl.class > dt,
-div.content dl.method > dt,
-div.content dl.function > dt,
-div.content dl.attribute > dt {
+article dl.class > dt,
+article dl.method > dt,
+article dl.function > dt,
+article dl.attribute > dt {
   margin-top: 3rem;
   margin-bottom: 1rem;
   font-weight: normal;
@@ -753,53 +1126,53 @@ div.content dl.attribute > dt {
   background: #ECEFF1;
   font-family: "Noto Sans", sans-serif;
 }
-div.content dl.class > dt code,
-div.content dl.method > dt code,
-div.content dl.function > dt code,
-div.content dl.attribute > dt code {
+article dl.class > dt code,
+article dl.method > dt code,
+article dl.function > dt code,
+article dl.attribute > dt code {
   font-family: inherit;
 }
-div.content dl.class > dt a,
-div.content dl.method > dt a,
-div.content dl.function > dt a,
-div.content dl.attribute > dt a {
+article dl.class > dt a,
+article dl.method > dt a,
+article dl.function > dt a,
+article dl.attribute > dt a {
   text-decoration: none;
 }
-div.content dl.class > dt a:hover,
-div.content dl.method > dt a:hover,
-div.content dl.function > dt a:hover,
-div.content dl.attribute > dt a:hover {
+article dl.class > dt a:hover,
+article dl.method > dt a:hover,
+article dl.function > dt a:hover,
+article dl.attribute > dt a:hover {
   border-bottom: 1px dotted #51adf6;
 }
-div.content dl.class > dt em,
-div.content dl.method > dt em,
-div.content dl.function > dt em,
-div.content dl.attribute > dt em {
+article dl.class > dt em,
+article dl.method > dt em,
+article dl.function > dt em,
+article dl.attribute > dt em {
   color: #51adf6;
 }
-div.content dl.class > dt span.sig-paren,
-div.content dl.method > dt span.sig-paren,
-div.content dl.function > dt span.sig-paren,
-div.content dl.attribute > dt span.sig-paren {
+article dl.class > dt span.sig-paren,
+article dl.method > dt span.sig-paren,
+article dl.function > dt span.sig-paren,
+article dl.attribute > dt span.sig-paren {
   font-weight: bold;
 }
-div.content dl.class > dt code.descname,
-div.content dl.method > dt code.descname,
-div.content dl.function > dt code.descname,
-div.content dl.attribute > dt code.descname {
+article dl.class > dt code.descname,
+article dl.method > dt code.descname,
+article dl.function > dt code.descname,
+article dl.attribute > dt code.descname {
   font-weight: bold;
 }
-div.content dl.class > dt code.descclassname,
-div.content dl.method > dt code.descclassname,
-div.content dl.function > dt code.descclassname,
-div.content dl.attribute > dt code.descclassname {
+article dl.class > dt code.descclassname,
+article dl.method > dt code.descclassname,
+article dl.function > dt code.descclassname,
+article dl.attribute > dt code.descclassname {
   color: #a0a0a0;
   font-style: italic;
 }
-div.content dl.class > dt > em.property:first-child,
-div.content dl.method > dt > em.property:first-child,
-div.content dl.function > dt > em.property:first-child,
-div.content dl.attribute > dt > em.property:first-child {
+article dl.class > dt > em.property:first-child,
+article dl.method > dt > em.property:first-child,
+article dl.function > dt > em.property:first-child,
+article dl.attribute > dt > em.property:first-child {
   display: inline-block;
   padding: 0rem .35rem;
   margin-right: .35rem;
@@ -809,22 +1182,22 @@ div.content dl.attribute > dt > em.property:first-child {
   background: rgba(255, 255, 255, 0.1);
   color: #51adf6;
 }
-div.content p {
+article p {
   line-height: 1.35rem;
   max-width: 50em;
 }
-div.content p code {
+article p code {
   font-family: monospace;
   padding: .2rem;
   background: rgba(33, 150, 243, 0.1);
 }
-div.content p code span.pre {
+article p code span.pre {
   word-wrap: pre;
 }
-div.content section.content-heading {
+article section.content-heading {
   padding: 4rem 0rem;
 }
-div.content section.content-heading h1 {
+article section.content-heading h1 {
   font-size: 1rem;
   line-height: 1.5rem;
   margin-top: 3rem;
@@ -838,25 +1211,25 @@ div.content section.content-heading h1 {
   margin-bottom: .3rem;
   margin-top: 0rem;
 }
-div.content section.content-heading h1 code {
+article section.content-heading h1 code {
   font-family: inherit;
 }
-div.content section.content-heading h1 a {
+article section.content-heading h1 a {
   text-decoration: none;
 }
-div.content section.content-heading h1 a:hover {
+article section.content-heading h1 a:hover {
   border-bottom: 1px dotted #51adf6;
 }
-div.content section.content-heading h1 code {
+article section.content-heading h1 code {
   font-family: inherit;
 }
-div.content section.content-heading h1 a {
+article section.content-heading h1 a {
   text-decoration: none;
 }
-div.content section.content-heading h1 a:hover {
+article section.content-heading h1 a:hover {
   border-bottom: 1px dotted #51adf6;
 }
-div.content section.content-heading h2 {
+article section.content-heading h2 {
   font-size: 1rem;
   line-height: 1.5rem;
   margin-top: 3rem;
@@ -870,34 +1243,34 @@ div.content section.content-heading h2 {
   font-weight: normal;
   margin-bottom: 0rem;
 }
-div.content section.content-heading h2 code {
+article section.content-heading h2 code {
   font-family: inherit;
 }
-div.content section.content-heading h2 a {
+article section.content-heading h2 a {
   text-decoration: none;
 }
-div.content section.content-heading h2 a:hover {
+article section.content-heading h2 a:hover {
   border-bottom: 1px dotted #51adf6;
 }
-div.content section.content-heading h2 code {
+article section.content-heading h2 code {
   font-family: inherit;
 }
-div.content section.content-heading h2 a {
+article section.content-heading h2 a {
   text-decoration: none;
 }
-div.content section.content-heading h2 a:hover {
+article section.content-heading h2 a:hover {
   border-bottom: 1px dotted #51adf6;
 }
-div.content section.content-heading div.content-logo {
+article section.content-heading div.content-logo {
   float: right;
   padding-left: 1rem;
   overflow: hidden;
 }
-div.content section.content-heading div.content-logo img {
+article section.content-heading div.content-logo img {
   width: 9rem;
   height: 9rem;
 }
-div.content section.content-heading div.content-search div.element.input-search {
+article section.content-heading div.content-search div.element.input-search {
   display: inline-block;
   position: relative;
   box-sizing: border-box;
@@ -906,7 +1279,7 @@ div.content section.content-heading div.content-search div.element.input-search 
   border-radius: 2px;
   margin-top: 1rem;
 }
-div.content section.content-heading div.content-search div.element.input-search input[type='text'] {
+article section.content-heading div.content-search div.element.input-search input[type='text'] {
   width: 100%;
   border: 0rem;
   padding: .65rem;
@@ -918,21 +1291,21 @@ div.content section.content-heading div.content-search div.element.input-search 
   outline: 0rem;
   transistion: all 1s;
 }
-div.content section.content-heading div.content-search div.element.input-search input[type='text']:focus {
+article section.content-heading div.content-search div.element.input-search input[type='text']:focus {
   background: #4b5961;
   transistion: all 1s;
 }
-div.content section.content-heading div.content-search div.element.input-search input[type='text']::-webkit-input-placeholder,
-div.content section.content-heading div.content-search div.element.input-search input[type='text']::-moz-placeholder,
-div.content section.content-heading div.content-search div.element.input-search input[type='text']:-ms-input-placeholder,
-div.content section.content-heading div.content-search div.element.input-search input[type='text']:-moz-placeholder,
-div.content section.content-heading div.content-search div.element.input-search input[type='text']::placeholder {
+article section.content-heading div.content-search div.element.input-search input[type='text']::-webkit-input-placeholder,
+article section.content-heading div.content-search div.element.input-search input[type='text']::-moz-placeholder,
+article section.content-heading div.content-search div.element.input-search input[type='text']:-ms-input-placeholder,
+article section.content-heading div.content-search div.element.input-search input[type='text']:-moz-placeholder,
+article section.content-heading div.content-search div.element.input-search input[type='text']::placeholder {
   color: rgba(255, 255, 255, 0.75);
 }
-div.content section.content-heading div.content-search div.element.input-search input[type='text'] {
+article section.content-heading div.content-search div.element.input-search input[type='text'] {
   padding-left: 2.65rem;
 }
-div.content section.content-heading div.content-search div.element.input-search div.input-search-icon {
+article section.content-heading div.content-search div.element.input-search div.input-search-icon {
   position: absolute;
   top: 0rem;
   left: 0rem;
@@ -941,7 +1314,7 @@ div.content section.content-heading div.content-search div.element.input-search 
   text-align: center;
   color: #ffffff;
 }
-div.content section.content-heading div.content-search div.element.input-search div.input-search-icon:before {
+article section.content-heading div.content-search div.element.input-search div.input-search-icon:before {
   display: inline-block;
   font: normal normal normal 14px/1 FontAwesome;
   font-size: inherit;
@@ -953,13 +1326,13 @@ div.content section.content-heading div.content-search div.element.input-search 
   top: .65rem;
   height: 100%;
 }
-div.content div.content-body {
-  max-width: 60rem;
-}
 /* Sidebar */
 nav.sidebar {
-  position: fixed;
-  width: 20rem;
+  /*
+    Fixed positioned sidebar
+    position: fixed;
+    width: @sidebar-width;
+    */
   margin: 4rem 0rem 2rem 0rem;
 }
 nav.sidebar a {
@@ -1033,11 +1406,56 @@ nav.sidebar section.sidebar-toc a > code {
   font-family: 'Noto Sans', sans-serif;
 }
 footer {
-  margin-left: 20rem;
-  max-width: 60rem;
+  overflow: hidden;
+  display: block;
+  width: 100%;
+  margin-left: 0%;
+  *zoom: 1;
   color: rgba(255, 255, 255, 0.75);
   font-size: .9rem;
   text-align: center;
+}
+footer:before,
+footer:after {
+  content: "";
+  display: table;
+}
+footer:after {
+  clear: both;
+}
+@media (max-width: 840px), (max-device-width: 840px) {
+  footer {
+    overflow: hidden;
+    display: block;
+    width: 100%;
+    margin-left: 0%;
+    *zoom: 1;
+  }
+  footer:before,
+  footer:after {
+    content: "";
+    display: table;
+  }
+  footer:after {
+    clear: both;
+  }
+}
+@media (max-width: 480px), (max-device-width: 480px) {
+  footer {
+    overflow: hidden;
+    display: block;
+    width: 100%;
+    margin-left: 0%;
+    *zoom: 1;
+  }
+  footer:before,
+  footer:after {
+    content: "";
+    display: table;
+  }
+  footer:after {
+    clear: both;
+  }
 }
 footer hr {
   display: block;
@@ -1048,7 +1466,75 @@ footer hr {
   background: rgba(255, 255, 255, 0.25);
 }
 footer div.inner {
-  padding: 2rem;
+  padding: 2rem 0rem;
+  display: inline;
+  float: left;
+  width: 65%;
+  margin-left: 25.83333333%;
+  margin-right: 0.83333333%;
+  *zoom: 1;
+}
+footer div.inner:before,
+footer div.inner:after {
+  content: "";
+  display: table;
+}
+footer div.inner:after {
+  clear: both;
+}
+@media (max-width: 960px), (max-device-width: 960px) {
+  footer div.inner {
+    display: inline;
+    float: left;
+    width: 72.5%;
+    margin-left: 26.25%;
+    margin-right: 1.25%;
+    *zoom: 1;
+  }
+  footer div.inner:before,
+  footer div.inner:after {
+    content: "";
+    display: table;
+  }
+  footer div.inner:after {
+    clear: both;
+  }
+}
+@media (max-width: 600px), (max-device-width: 600px) {
+  footer div.inner {
+    display: inline;
+    float: left;
+    width: 97.5%;
+    margin-left: 1.25%;
+    margin-right: 1.25%;
+    *zoom: 1;
+  }
+  footer div.inner:before,
+  footer div.inner:after {
+    content: "";
+    display: table;
+  }
+  footer div.inner:after {
+    clear: both;
+  }
+}
+@media (max-width: 480px), (max-device-width: 480px) {
+  footer div.inner {
+    display: inline;
+    float: left;
+    width: 95%;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+    *zoom: 1;
+  }
+  footer div.inner:before,
+  footer div.inner:after {
+    content: "";
+    display: table;
+  }
+  footer div.inner:after {
+    clear: both;
+  }
 }
 footer ul.footer-buttons {
   padding-left: 0rem;

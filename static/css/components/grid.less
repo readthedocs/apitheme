@@ -1,0 +1,123 @@
+/* Grid */
+
+@import '../variables';
+@import '../util';
+
+.ui-grid (@columns: 12; @totalwidth: 100%) {
+    overflow: hidden;
+
+    .ui-grid-column(@width: 1; @offset: 0; @columns-p: @columns) {
+        @unit: @totalwidth / @columns-p;
+        @gutter: @unit * .2;
+        @block: @unit * .8;
+        display: inline;
+        float: left;
+        width: (@width * @unit) - @gutter;
+        margin-left: (@gutter * .5) + (@offset * @unit);
+        margin-right: (@gutter * .5);
+        .util-clearfix();
+    }
+
+    .ui-grid-block(@width:1; @offset:0) {
+        @unit: @totalwidth / @columns;
+        @gutter: @unit * .2;
+        @block: @unit * .8;
+        display: block;
+        width: (@width * @unit);
+        margin-left: (@offset * @unit);
+        .util-clearfix();
+    }
+}
+
+.ui-grid-block () {
+    .ui-grid(12);
+
+    .ui-grid-block(12);
+    .util-media(@screen-size-m, {
+        .ui-grid(8);
+        .ui-grid-block(8);
+    });
+    .util-media(@screen-size-xs, {
+        .ui-grid(4);
+        .ui-grid-block(4);
+    });
+
+    // TODO clean up this implementation
+    .ui-grid-column-fill () {
+        .ui-grid-column(12, 0, 12);
+        .util-media(@screen-size-m2, {
+            .ui-grid-column(8, 0, 8);
+        });
+        .util-media(@screen-size-s, {
+            .ui-grid-column(8, 0, 8);
+        });
+        .util-media(@screen-size-xs, {
+            .ui-grid-column(4, 0, 4);
+        });
+    }
+
+    .ui-grid-column-sidebar () {
+        .ui-grid-column(3, 0, 12);
+        .util-media(@screen-size-m2, {
+            .ui-grid-column(2, 0, 8);
+        });
+        .util-media(@screen-size-s, {
+            .ui-grid-column(8, 0, 8);
+        });
+        .util-media(@screen-size-xs, {
+            .ui-grid-column(4, 0, 4);
+        });
+    }
+
+    .ui-grid-column-content () {
+        .ui-grid-column(8, 0, 12);
+        .util-media(@screen-size-m2, {
+            .ui-grid-column(6, 0, 8);
+        });
+        .util-media(@screen-size-s, {
+            .ui-grid-column(8, 0, 8);
+        });
+        .util-media(@screen-size-xs, {
+            .ui-grid-column(4, 0, 4);
+        });
+    }
+
+    .ui-grid-column-content-only () {
+        .ui-grid-column(8, 3, 12);
+        .util-media(@screen-size-m2, {
+            .ui-grid-column(6, 2, 8);
+        });
+        .util-media(@screen-size-s, {
+            .ui-grid-column(8, 0, 8);
+        });
+        .util-media(@screen-size-xs, {
+            .ui-grid-column(4, 0, 4);
+        });
+    }
+
+    .ui-grid-column-major () {
+        .ui-grid-column(8, 0, 12);
+        .util-media(@screen-size-m2, {
+            .ui-grid-column(5, 0, 8);
+        });
+        .util-media(@screen-size-s, {
+            .ui-grid-column(8, 0, 8);
+        });
+        .util-media(@screen-size-xs, {
+            .ui-grid-column(4, 0, 4);
+        });
+    }
+
+    .ui-grid-column-minor () {
+        .ui-grid-column(4, 0, 12);
+        .util-media(@screen-size-m2, {
+            .ui-grid-column(3, 0, 8);
+        });
+        .util-media(@screen-size-s, {
+            .ui-grid-column(8, 0, 8);
+        });
+        .util-media(@screen-size-xs, {
+            .ui-grid-column(4, 0, 4);
+        });
+    }
+}

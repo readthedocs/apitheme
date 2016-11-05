@@ -1,16 +1,18 @@
 /* Content */
 
 @import '../variables';
+@import 'grid';
 
-.ui_content () {
-    max-width: 60rem;
-    margin-left: @sidebar-width;
-    padding: @header-height 2rem 2rem 2rem;
+.ui-content () {
+    padding: @header-height 0rem 2rem 0rem;
     overflow: auto;
+    border-radius: 2px;
 
     background: @color-bg;
     color: @color-fg;
-    border-radius: 2px;
-
     .util-shadow-2();
+
+    .ui-content-body () {
+        padding: 2rem;
+    }
 }

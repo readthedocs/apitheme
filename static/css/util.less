@@ -1,26 +1,62 @@
-/* Utility methods */
+/* Utility mixins */
 
-.util-shadow-1 {
+/* Misc */
+// The micro clearfix http://nicolasgallagher.com/micro-clearfix-hack/
+.util-clearfix () {
+    *zoom: 1;
+
+    &:before,
+    &:after {
+        content: "";
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+/* Media queries
+
+Material layout breakpoints:
+https://material.google.com/layout/responsive-ui.html#responsive-ui-breakpoints
+
+*/
+@screen-size-xs: 480px; // Four columns
+@screen-size-s: 600px; // One horizontal element
+@screen-size-m: 840px; // Eight columns
+@screen-size-m2: 960px;
+@screen-size-l: 1280px;
+@screen-size-l2: 1440px;
+@screen-size-xl: 1600px; // Twelve columns
+
+.util-media (@width, @rules) {
+    @media (max-width: @width), (max-device-width: @width) {
+        @rules();
+    }
+}
+
+/* Material mixins */
+.util-shadow-1 () {
   box-shadow: 0 1px 3px rgba(0,0,0,0.12),
               0 1px 2px rgba(0,0,0,0.24);
 }
 
-.util-shadow-2 {
+.util-shadow-2 () {
   box-shadow: 0 3px 6px rgba(0,0,0,0.16),
               0 3px 6px rgba(0,0,0,0.23);
 }
 
-.util-shadow-3 {
+.util-shadow-3 () {
   box-shadow: 0 10px 20px rgba(0,0,0,0.19),
               0 6px 6px rgba(0,0,0,0.23);
 }
 
-.util-shadow-4 {
+.util-shadow-4 () {
   box-shadow: 0 14px 28px rgba(0,0,0,0.25),
               0 10px 10px rgba(0,0,0,0.22);
 }
 
-.util-shadow-5 {
+.util-shadow-5 () {
   box-shadow: 0 19px 38px rgba(0,0,0,0.30),
               0 15px 12px rgba(0,0,0,0.22);
 }

@@ -1,17 +1,18 @@
 /* Footer */
 
 @import '../variables';
+@import 'grid';
 
 .ui-footer (@fg: @color-fg) {
-    margin-left: @sidebar-width;
-    max-width: @content-width;
+    .ui-grid-block();
     color: fade(@fg, 75%);
 
     font-size: .9rem;
     text-align: center;
 
     .ui-footer-inner () {
-        padding: 2rem;
+        padding: 2rem 0rem;
+        .ui-grid-column-content-only();
     }
 
     hr {

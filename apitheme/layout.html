@@ -101,68 +101,70 @@
       </nav>
     {% endblock %}
 
-    {% block nav %}
-      <nav class="sidebar sidebar-main">
-        <div class="inner">
-          {% block sidebar_version %}
-            {%- set _version = version %}
-            {% if READTHEDOCS and current_version %}
-              {%- set _version = current_version %}
-            {% endif %}
-            {% if _version %}
-              <div class="sidebar-version">
-                {{ _version }}
-              </div>
-            {% endif %}
-          {% endblock %}
-
-          {% set toctree = toctree(maxdepth=4, collapse=false, includehidden=True) %}
-          <section class="sidebar-toc {% if not toctree %}sidebar-toc-local{% endif %}">
-            {{ toc }}
-          </section>
-        </div>
-      </nav>
-    {% endblock %}
-
-    {% block content %}
-      <article itemscope=true itemtype="http://schema.org/APIReference">
-        <div class="content">
-          {% block content_heading %}
-            <section class="content-heading">
-
-              {% block content_logo %}
-                <div class="content-logo">
-                  <img src="http://placehold.it/300x300" />
+    <div class="main">
+      {% block sidebar %}
+        <nav class="sidebar">
+          <div class="inner">
+            {% block sidebar_version %}
+              {%- set _version = version %}
+              {% if READTHEDOCS and current_version %}
+                {%- set _version = current_version %}
+              {% endif %}
+              {% if _version %}
+                <div class="sidebar-version">
+                  {{ _version }}
                 </div>
-              {% endblock %}
+              {% endif %}
+            {% endblock %}
 
-              <h1 class="content-project" itemprop="executableLibraryName">
-                <a href="{{ pathto(master_doc) }}">{{ project }}</a>
-              </h1>
-              {% block content_version %}
-                {%- set nav_version = version %}
-                {% if READTHEDOCS and current_version %}
-                  {%- set nav_version = current_version %}
-                {% endif %}
-                {% if nav_version %}
-                  <h2 class="content-version">
-                    Version
-                    <span class="version" itemprop="assemblyVersion">
-                      {{ nav_version }}
-                    </span>
-                  </h2>
-                {% endif %}
-              {% endblock %}
+            {% set toctree = toctree(maxdepth=4, collapse=false, includehidden=True) %}
+            <section class="sidebar-toc {% if not toctree %}sidebar-toc-local{% endif %}">
+              {{ toc }}
             </section>
-          {% endblock %}
-
-          <div class="content-body" itemprop="articleBody">
-            {% block body %}{% endblock %}
           </div>
-        </div>
+        </nav>
+      {% endblock %}
 
-      </article>
-    {% endblock %}
+      {% block content %}
+        <article itemscope=true itemtype="http://schema.org/APIReference">
+          <div class="content">
+            {% block content_heading %}
+              <section class="content-heading">
+
+                {% block content_logo %}
+                  <div class="content-logo">
+                    <img src="http://placehold.it/300x300" />
+                  </div>
+                {% endblock %}
+
+                <h1 class="content-project" itemprop="executableLibraryName">
+                  <a href="{{ pathto(master_doc) }}">{{ project }}</a>
+                </h1>
+                {% block content_version %}
+                  {%- set nav_version = version %}
+                  {% if READTHEDOCS and current_version %}
+                    {%- set nav_version = current_version %}
+                  {% endif %}
+                  {% if nav_version %}
+                    <h2 class="content-version">
+                      Version
+                      <span class="version" itemprop="assemblyVersion">
+                        {{ nav_version }}
+                      </span>
+                    </h2>
+                  {% endif %}
+                {% endblock %}
+              </section>
+            {% endblock %}
+
+            <div class="content-body" itemprop="articleBody">
+              {% block body %}{% endblock %}
+            </div>
+          </div>
+
+        </article>
+      {% endblock %}
+    </div>
 
     {% include "footer.html" %}
 

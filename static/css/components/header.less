@@ -2,11 +2,13 @@
 
 @import '../variables';
 @import '../util';
+@import 'grid';
 
 .ui_header () {
     height: @header-height;
     overflow: hidden;
     z-index: 10000;
+    .ui-grid-block();
 
     background: @color-header-bg;
     color: @color-header-fg;
@@ -14,15 +16,12 @@
     .util-shadow-1();
 
     .ui_header_left () {
-        display: block;
-        float: left;
-        width: @sidebar-width;
+        .ui-grid-column-sidebar();
         height: @header-height;
     }
 
     .ui_header_main () {
-        display: block;
-        float: left;
+        .ui-grid-column-content();
         height: @header-height;
     }
 }
