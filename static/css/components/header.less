@@ -4,7 +4,7 @@
 @import '../util';
 @import 'grid';
 
-.ui_header () {
+.ui-header () {
     height: @header-height;
     overflow: hidden;
     z-index: 10000;
@@ -15,19 +15,19 @@
 
     .util-shadow-1();
 
-    .ui_header_left () {
+    .ui-header-left () {
         .ui-grid-column-sidebar();
         height: @header-height;
     }
 
-    .ui_header_main () {
+    .ui-header-main () {
         .ui-grid-column-content();
         height: @header-height;
     }
 }
 
-.ui_header_fixed () {
-    .ui_header();
+.ui-header-fixed () {
+    .ui-header();
     position: fixed;
     top: 0rem;
     left: 0rem;
