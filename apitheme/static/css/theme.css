@@ -466,14 +466,19 @@ https://material.google.com/layout/responsive-ui.html#responsive-ui-breakpoints
   font-style: italic;
 }
 html {
-  font-size: 18px;
+  font-size: 17px;
 }
-@media (max-width: 1440px), (max-device-width: 1440px) {
+@media (max-width: 1920px), (max-device-width: 1920px) {
   html {
     font-size: 16px;
   }
 }
-@media (max-width: 960px), (max-device-width: 960px) {
+@media (max-width: 1600px), (max-device-width: 1600px) {
+  html {
+    font-size: 15px;
+  }
+}
+@media (max-width: 1280px), (max-device-width: 1280px) {
   html {
     font-size: 14px;
   }
@@ -581,12 +586,12 @@ nav.header div.header-search:after {
 nav.header div.header-search:after {
   clear: both;
 }
-@media (max-width: 1280px), (max-device-width: 1280px) {
+@media (max-width: 1440px), (max-device-width: 1440px) {
   nav.header div.header-search {
     display: inline;
     float: left;
-    width: 15%;
-    margin-left: 9.16666667%;
+    width: 23.33333333%;
+    margin-left: 0.83333333%;
     margin-right: 0.83333333%;
     *zoom: 1;
   }
@@ -886,12 +891,12 @@ div.main nav.sidebar:after {
 div.main nav.sidebar:after {
   clear: both;
 }
-@media (max-width: 1280px), (max-device-width: 1280px) {
+@media (max-width: 1440px), (max-device-width: 1440px) {
   div.main nav.sidebar {
     display: inline;
     float: left;
-    width: 15%;
-    margin-left: 9.16666667%;
+    width: 23.33333333%;
+    margin-left: 0.83333333%;
     margin-right: 0.83333333%;
     *zoom: 1;
   }
@@ -1383,7 +1388,7 @@ nav.sidebar a:hover {
   color: #2196F3;
 }
 nav.sidebar div.inner {
-  padding: 1rem 2rem;
+  padding: 1rem 0rem;
 }
 nav.sidebar section.sidebar-toc > ul {
   padding-left: 0rem;
