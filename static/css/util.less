@@ -21,16 +21,39 @@ Material layout breakpoints:
 https://material.google.com/layout/responsive-ui.html#responsive-ui-breakpoints
 
 */
-@screen-size-xs: 480px; // Four columns
-@screen-size-s: 600px; // One horizontal element
-@screen-size-m: 840px; // Eight columns
-@screen-size-m2: 960px;
-@screen-size-l: 1280px;
-@screen-size-l2: 1440px;
-@screen-size-xl: 1600px; // Twelve columns
+@screen-size-xs: 480; // Four columns
+@screen-size-s: 600; // One horizontal element
+@screen-size-m: 840; // Eight columns
+@screen-size-m2: 960;
+@screen-size-l: 1280;
+@screen-size-l2: 1440;
+@screen-size-xl: 1600; // Twelve columns
 
-.util-media (@width, @rules) {
-    @media (max-width: @width), (max-device-width: @width) {
+.util-media (@dp-width, @rules) {
+    .util-media-resolution(@dp-width, 90dpi, @rules);
+}
+
+.util-media-resolution (@dp-width, @resolution, @rules) {
+    .util-media-wrapper(
+        @dp-width * 90 / @resolution * 1px,
+        @resolution * 1dpi,
+        @rules
+    );
+}
+
+.util-media-wrapper (@width, @dpi, @rules) when (@dpi > 90) {
+    @media (max-width: @width),
+           (max-device-width: @width) {
+        @media (max-resolution: @dpi),
+               (-webkit-device-pixel-ratio: @dpi) {
+            @rules();
+        }
+    }
+}
+
+.util-media-wrapper (@width, @dpi, @rules) when (default()) {
+    @media (max-width: @width),
+           (max-device-width: @width) {
         @rules();
     }
 }

@@ -468,7 +468,7 @@ https://material.google.com/layout/responsive-ui.html#responsive-ui-breakpoints
 html {
   font-size: 18px;
 }
-@media (max-width: 1280px), (max-device-width: 1280px) {
+@media (max-width: 1440px), (max-device-width: 1440px) {
   html {
     font-size: 16px;
   }
@@ -567,8 +567,8 @@ nav.header:after {
 nav.header div.header-search {
   display: inline;
   float: left;
-  width: 23.33333333%;
-  margin-left: 0.83333333%;
+  width: 15%;
+  margin-left: 9.16666667%;
   margin-right: 0.83333333%;
   *zoom: 1;
   height: 4rem;
@@ -580,6 +580,24 @@ nav.header div.header-search:after {
 }
 nav.header div.header-search:after {
   clear: both;
+}
+@media (max-width: 1280px), (max-device-width: 1280px) {
+  nav.header div.header-search {
+    display: inline;
+    float: left;
+    width: 15%;
+    margin-left: 9.16666667%;
+    margin-right: 0.83333333%;
+    *zoom: 1;
+  }
+  nav.header div.header-search:before,
+  nav.header div.header-search:after {
+    content: "";
+    display: table;
+  }
+  nav.header div.header-search:after {
+    clear: both;
+  }
 }
 @media (max-width: 960px), (max-device-width: 960px) {
   nav.header div.header-search {
@@ -855,8 +873,8 @@ div.main:after {
 div.main nav.sidebar {
   display: inline;
   float: left;
-  width: 23.33333333%;
-  margin-left: 0.83333333%;
+  width: 15%;
+  margin-left: 9.16666667%;
   margin-right: 0.83333333%;
   *zoom: 1;
 }
@@ -867,6 +885,24 @@ div.main nav.sidebar:after {
 }
 div.main nav.sidebar:after {
   clear: both;
+}
+@media (max-width: 1280px), (max-device-width: 1280px) {
+  div.main nav.sidebar {
+    display: inline;
+    float: left;
+    width: 15%;
+    margin-left: 9.16666667%;
+    margin-right: 0.83333333%;
+    *zoom: 1;
+  }
+  div.main nav.sidebar:before,
+  div.main nav.sidebar:after {
+    content: "";
+    display: table;
+  }
+  div.main nav.sidebar:after {
+    clear: both;
+  }
 }
 @media (max-width: 960px), (max-device-width: 960px) {
   div.main nav.sidebar {
