@@ -1401,8 +1401,8 @@ nav.sidebar section.sidebar-toc > ul {
 }
 nav.sidebar section.sidebar-toc > ul > li {
   font-family: 'Noto Sans', sans-serif;
-  margin-top: .5rem;
-  margin-bottom: .5rem;
+  margin-top: .75rem;
+  margin-bottom: .75rem;
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
@@ -1410,41 +1410,42 @@ nav.sidebar section.sidebar-toc > ul > li > a {
   font-weight: bold;
 }
 nav.sidebar section.sidebar-toc > ul > li > ul {
+  padding-left: 0rem;
   margin-top: 0rem;
   margin-bottom: 0rem;
   list-style: none;
-  padding-left: 0rem;
 }
 nav.sidebar section.sidebar-toc > ul > li > ul > li {
   font-family: 'Noto Sans', sans-serif;
-  margin-top: .5rem;
-  margin-bottom: .5rem;
+  margin-top: .75rem;
+  margin-bottom: .75rem;
+  font-size: .95rem;
 }
 nav.sidebar section.sidebar-toc > ul > li > ul > li > ul {
   padding-left: 0rem;
   margin-top: 0rem;
   margin-bottom: 0rem;
   list-style: none;
-  visibility: hidden;
-  display: none;
+  padding-left: 1rem;
 }
 nav.sidebar section.sidebar-toc > ul > li > ul > li > ul > li {
   font-family: 'Noto Sans', sans-serif;
-  margin-top: .5rem;
-  margin-bottom: .5rem;
+  margin-top: .75rem;
+  margin-bottom: .75rem;
+  font-size: .9rem;
 }
 nav.sidebar section.sidebar-toc > ul > li > ul > li > ul > li > ul {
   padding-left: 0rem;
   margin-top: 0rem;
   margin-bottom: 0rem;
   list-style: none;
-  visibility: hidden;
-  display: none;
+  padding-left: 1rem;
 }
 nav.sidebar section.sidebar-toc > ul > li > ul > li > ul > li > ul > li {
   font-family: 'Noto Sans', sans-serif;
-  margin-top: .5rem;
-  margin-bottom: .5rem;
+  margin-top: .75rem;
+  margin-bottom: .75rem;
+  font-size: .85rem;
 }
 nav.sidebar section.sidebar-toc a > code {
   font-family: 'Noto Sans', sans-serif;
