@@ -100,7 +100,7 @@ function build_css () {
 function build_demo_docs (stream, done) {
     return es.wait(function (err, body) {
         util.log('Building demo docs');
-        run('make html', {cwd: 'demo/', verbosity: 1})
+        run('sphinx-build demo_docs/source demo_docs/build', {verbosity: 1})
             .exec('', function (err) {
                 if (done) { done(err); }
             });

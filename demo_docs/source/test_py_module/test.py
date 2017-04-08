@@ -4,7 +4,7 @@
 
 class Foo:
 
-    r"""Docstring for class Foo.
+    """Docstring for class Foo.
 
     This text tests for the formatting of docstrings generated from output
     ``sphinx.ext.autodoc``. Which contain reST, but sphinx nests it in the
@@ -40,14 +40,6 @@ class Foo:
 
     baz = 2
     """Docstring for class attribute Foo.baz."""
-
-    class Meta:
-
-        """Nested Meta class"""
-
-        def foo(self):
-            """Foo method for the meta class"""
-            return False
 
     def __init__(self, qux, spam=False):
         """Start the Foo.
@@ -111,5 +103,11 @@ class Foo:
 
         :raises ValueError: When ``a`` is not an integer.
 
+        .. versionadded:: 1.0
+            This was added in 1.0
+        .. versionchanged:: 2.0
+            This was changed in 2.0
+        .. deprecated:: 3.0
+            This is deprecated since 3.0
         """
         return sum(kwargs.values()) / len(kwargs), a + b
